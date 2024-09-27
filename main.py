@@ -17,7 +17,7 @@ from test_parser import get_parameter_names, parse_tests
 
 # CUDA_VISIBLE_DEVICES=1 python -m vllm.entrypoints.openai.api_server --model deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct --trust-remote-code --dtype auto --api-key token-abc123s --port 18889 --max-model-len 40960 
 # CUDA_VISIBLE_DEVICES=0 python -m vllm.entrypoints.openai.api_server --model Qwen/CodeQwen1.5-7B-Chat --dtype auto --api-key token-abc123s --port 18892 --trust-remote-code --max-model-len 16384 --gpu-memory-utilization 0.5
-# CUDA_VISIBLE_DEVICES=1 python -m vllm.entrypoints.openai.api_server --model TechxGenus/Codestral-22B-v0.1-GPTQ --dtype auto --api-key token-abc123s --port 18895 --trust-remote-code --max-model-len 16384 --gpu-memory-utilization 0.5 --chat-template helper/codestral_template.jinja
+# CUDA_VISIBLE_DEVICES=1 python -m vllm.entrypoints.openai.api_server --model TechxGenus/Codestral-22B-v0.1-GPTQ --dtype auto --api-key token-abc123s --port 18890 --trust-remote-code --max-model-len 16384 --gpu-memory-utilization 0.5 --chat-template helper/codestral_template.jinja
 MODEL = "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct"
 # MODEL = "TechxGenus/Codestral-22B-v0.1-GPTQ"
 # MODEL = "Qwen/CodeQwen1.5-7B-Chat"
@@ -31,10 +31,6 @@ client = OpenAI(
 # dscoder 18889
 # codestral 18890
 # codeqwen 18892
-
-# client = Groq(
-#     api_key='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',
-# )
 
 # Hyperparameters
 MAX_VLLM_RETRIES = 10  # maximum number of retries for the VLLM call
@@ -55,7 +51,6 @@ TOTAL_MG_DEBUG_CALLS = 0
 TOTAL_DEBUG_FUNCTION_CALLS = 0
 TOTAL_GENERATE_TEST_CASES_CALLS = 0
 TOTAL_CONVERT_HIERARCHICAL_CALLS = 0
-# chat_completion.usage: CompletionUsage(completion_tokens=1062, prompt_tokens=180, total_tokens=1242)
 
 
 def get_completion_with_retry(messages, model=MODEL, MAX_VLLM_RETRIES=MAX_VLLM_RETRIES):
@@ -527,30 +522,6 @@ def debug_humaneval(input_seeds: str, max_examples: int = None, output_folder: s
             if not all_passed:
                 problem['debugged'] = False
                 logger.info(f"Failed to fix problem: {problem['task_id']} after {MAX_OUTER_RETRY} retries")
-            
-            #     # Check if all public (gold) test cases pass
-            #     all_public_passed = all(evaluate(fixed_code, entry_point, test_case)[0] for test_case in gold_tests)
-                
-            #     if all_public_passed:
-            #         logger.info(f"All public test cases passed for problem: {problem['task_id']} on retry {outer_retry + 1}")
-            #         break
-            #     else:
-            #         logger.info(f"Failed public test cases for problem: {problem['task_id']} on retry {outer_retry + 1}")
-            #         if outer_retry < MAX_OUTER_RETRY - 1:
-            #             if CONTINUOUS_RETRY:
-            #                 buggy_code = fixed_code
-            #             else:
-            #                 buggy_code = problem["solution"]
-
-            # # Evaluate on private test cases
-            # all_private_passed = evaluate_simple(fixed_code, entry_point, problem["test"])
-            # if all_private_passed:
-            #     fixed_problems += 1
-            #     problem['debugged'] = True
-            #     logger.info(f"Successfully fixed problem: {problem['task_id']} (passed private tests)")
-            # else:
-            #     problem['debugged'] = False
-            #     logger.info(f"Failed to fix problem: {problem['task_id']} (failed private tests) although public tests passed")
 
         except Exception as e:
             logger.error(f"Error occurred while processing problem: {problem['task_id']}")
@@ -631,24 +602,14 @@ def debug_humaneval(input_seeds: str, max_examples: int = None, output_folder: s
 if __name__ == "__main__":
 
     input_seeds = "input_data/humaneval/seed/deepseekcoder/seed.jsonl"
-    # input_seeds = "input_data/humaneval/seed/codellama/seed.jsonl"
     # input_seeds = "input_data/humaneval/seed/codestral/seed.jsonl"
-    # input_seeds = "input_data/humaneval/seed/gpt-4-1106-preview/seed.jsonl"
-    # input_seeds = "input_data/humaneval/seed/reflexion/seed.jsonl"
     # input_seeds = "input_data/humaneval/seed/codeqwen/seed.jsonl"
-    # input_seeds = "input_data/humaneval/seed/starcoder2/seed.jsonl"
 
-    # input_seeds = "input_data/mbpp/seed/starcoder/seed.jsonl"
-    # input_seeds = "input_data/mbpp/seed/gpt-3.5-turbo-0613/seed.jsonl"
     # input_seeds = "input_data/mbpp/seed/codestral/seed.jsonl"
     # input_seeds = "input_data/mbpp/seed/deepseekcoder/seed.jsonl"
     # input_seeds = "input_data/mbpp/seed/codeqwen/seed.jsonl"
-    # input_seeds = "input_data/mbpp/seed/starcoder2/seed.jsonl"
-
-    # input_seeds = "input_data/transcoder/seed/starcoder/seed.jsonl"
-    # input_seeds = "input_data/transcoder/seed/gpt-3.5-turbo-0613/seed.jsonl"
     
-    input_seeds = "input_data/humanevalfix/seeds.jsonl"
+    # input_seeds = "input_data/humanevalfix/seeds.jsonl"
 
     seed_stamp = input_seeds.split("input_data/")[-1].replace("/seed.jsonl", "")
     timestamp = time.strftime("%Y%m%d-%H%M%S")
