@@ -15,39 +15,22 @@ from groq import Groq
 from utils import split_nested_functions, get_dependency_graph_str, evaluate, parse_json_response, extract_code_blocks, extract_functions, extract_function, create_dependency_graph, topological_sort, merge_changes_to_parents, evaluate_simple, parse_transcoder_problem_content
 from test_parser import get_parameter_names, parse_tests
 
-
-# CUDA_VISIBLE_DEVICES=0 python -m vllm.entrypoints.openai.api_server --model TechxGenus/DeepSeek-Coder-V2-Lite-Instruct-AWQ --dtype auto --api-key token-abc123s --port 18885 --trust-remote-code --quantization awq
-# MODEL = "codellama/CodeLlama-13b-Instruct-hf"
-# MODEL = "codellama/CodeLlama-34b-Instruct-hf"
-# MODEL = "deepseek-ai/deepseek-coder-6.7b-instruct"
-# MODEL = "deepseek-ai/deepseek-coder-33b-instruct"
-# MODEL = "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct"
-# MODEL = "TechxGenus/starcoder2-15b-instruct-v0.1-GPTQ"
-# MODEL = "mistralai/Codestral-22B-v0.1"
-# MODEL = "TechxGenus/Codestral-22B-v0.1-GPTQ"
-# MODEL = "TechxGenus/DeepSeek-Coder-V2-Lite-Instruct-AWQ"
-MODEL = "Qwen/CodeQwen1.5-7B-Chat"
-# MODEL = "bigcode/starcoder2-15b-instruct-v0.1"
-
+# CUDA_VISIBLE_DEVICES=1 python -m vllm.entrypoints.openai.api_server --model deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct --trust-remote-code --dtype auto --api-key token-abc123s --port 18889 --max-model-len 40960 
 # CUDA_VISIBLE_DEVICES=0 python -m vllm.entrypoints.openai.api_server --model Qwen/CodeQwen1.5-7B-Chat --dtype auto --api-key token-abc123s --port 18892 --trust-remote-code --max-model-len 16384 --gpu-memory-utilization 0.5
 # CUDA_VISIBLE_DEVICES=1 python -m vllm.entrypoints.openai.api_server --model TechxGenus/Codestral-22B-v0.1-GPTQ --dtype auto --api-key token-abc123s --port 18895 --trust-remote-code --max-model-len 16384 --gpu-memory-utilization 0.5 --chat-template helper/codestral_template.jinja
-
-# CUDA_VISIBLE_DEVICES=0 python -m vllm.entrypoints.openai.api_server --model bigcode/starcoder2-15b-instruct-v0.1 --dtype auto --api-key token-abc123s --port 18891 --trust-remote-code --max-model-len 16384 --gpu-memory-utilization 0.6
+MODEL = "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct"
+# MODEL = "TechxGenus/Codestral-22B-v0.1-GPTQ"
+# MODEL = "Qwen/CodeQwen1.5-7B-Chat"
 
 
 client = OpenAI(
-    base_url="http://localhost:18892/v1",
+    base_url="http://localhost:18889/v1",
     api_key="token-abc123s",
 )
 
 # dscoder 18889
 # codestral 18890
-# starcoder 18891
 # codeqwen 18892
-
-# MODEL = "llama3-70b-8192"
-# MODEL = "llama-3.1-70b-versatile"
-# MODEL = "mixtral-8x7b-32768"
 
 # client = Groq(
 #     api_key='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',
