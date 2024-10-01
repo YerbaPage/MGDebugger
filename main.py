@@ -13,11 +13,12 @@ import time
 import re
 from groq import Groq
 from utils import split_nested_functions, get_dependency_graph_str, evaluate, parse_json_response, extract_code_blocks, extract_functions, extract_function, create_dependency_graph, topological_sort, merge_changes_to_parents, evaluate_simple, parse_transcoder_problem_content
-from test_parser import get_parameter_names, parse_tests
+from testcase_utils import get_parameter_names, parse_tests
 
-# CUDA_VISIBLE_DEVICES=1 python -m vllm.entrypoints.openai.api_server --model deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct --trust-remote-code --dtype auto --api-key token-abc123s --port 18889 --max-model-len 40960 
-# CUDA_VISIBLE_DEVICES=0 python -m vllm.entrypoints.openai.api_server --model Qwen/CodeQwen1.5-7B-Chat --dtype auto --api-key token-abc123s --port 18892 --trust-remote-code --max-model-len 16384 --gpu-memory-utilization 0.5
-# CUDA_VISIBLE_DEVICES=1 python -m vllm.entrypoints.openai.api_server --model TechxGenus/Codestral-22B-v0.1-GPTQ --dtype auto --api-key token-abc123s --port 18890 --trust-remote-code --max-model-len 16384 --gpu-memory-utilization 0.5 --chat-template helper/codestral_template.jinja
+# CUDA_VISIBLE_DEVICES=0 python -m vllm.entrypoints.openai.api_server --model deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct --trust-remote-code --dtype auto --api-key token-abc123s --port 18889
+# CUDA_VISIBLE_DEVICES=0 python -m vllm.entrypoints.openai.api_server --model TechxGenus/Codestral-22B-v0.1-GPTQ --dtype auto --api-key token-abc123s --port 18890 --trust-remote-code --chat-template helper/codestral_template.jinja
+# CUDA_VISIBLE_DEVICES=0 python -m vllm.entrypoints.openai.api_server --model Qwen/CodeQwen1.5-7B-Chat --dtype auto --api-key token-abc123s --port 18892 --trust-remote-code
+
 MODEL = "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct"
 # MODEL = "TechxGenus/Codestral-22B-v0.1-GPTQ"
 # MODEL = "Qwen/CodeQwen1.5-7B-Chat"
@@ -35,7 +36,7 @@ client = OpenAI(
 # Hyperparameters
 MAX_VLLM_RETRIES = 10  # maximum number of retries for the VLLM call
 MAX_PARSE_RETRIES = 3  # we sometimes fail to parse the code/test cases from the response, so we retry
-MAX_DEBUG_RETRIES = 3  # 3 seems to be slightly better than 1
+MAX_DEBUG_RETRIES = 3  # 3 seems to be slightly better than 1, but the difference is not significant
 RETRY_DELAY = 0  # seconds
 REPEAT_CONVERT_HIERARCHICAL_NUM = 1  # seems unimportant
 REPEAT_TEST_CASE_GENERATION_NUM = 1  # 1 seems to be better than 3
@@ -90,8 +91,6 @@ def generate_test_cases(full_code, gold_test_cases, function_name, MAX_PARSE_RET
 
     logger.info(f"Generating test cases for function: {function_name}")
 
-    # TODO: replace the var1 with ...
-    # TODO: compare the performance with/without the indent before the prompt (now it has an indent)
     prompt = f"""
     Analyze the following Python code and focus on the function named `{function_name}`. 
     Generate the same number of test cases for this specific function based on the provided gold test cases for the main function.
@@ -128,7 +127,6 @@ def generate_test_cases(full_code, gold_test_cases, function_name, MAX_PARSE_RET
     Analyze how the `{function_name}` function is used within the main function and how it contributes to the expected outputs in the gold test cases. Generate test cases that reflect this behavior. For each test case, you should analyze step-by-step based on both the input and the expected output of the main function, and then provide the corresponding input and expected output for the `{function_name}` function.
     """
 
-    # TODO: the model still likes to generate the tests before analyzing them case by case
 
     messages = [
         {'role': 'system', 'content': "You are an AI assistant specialized in analyzing Python functions and generating test cases."},
@@ -293,9 +291,6 @@ def convert_to_hierarchical(code, include_example=False):
     best_conversion = None
     max_subfunctions = 0
 
-    # TODO: remove unused functions
-    # TODO: bugs exist in building the dependency graph, we need to use ast instead of string matching to determine dependencies in some cases where functions have similar names. Though it won't hurt the performance much, it will increase unnecessary time cost.
-
     for _ in range(REPEAT_CONVERT_HIERARCHICAL_NUM):
         response = get_completion_with_retry(messages)
         code_blocks = extract_code_blocks(response)
@@ -332,7 +327,6 @@ def mg_debug(full_code, gold_test_cases, max_debug_attempts=MAX_DEBUG_RETRIES):
             logger.info(f"Converted code to tree-style hierarchical structure:\n{hierarchical_code}")
 
             functions = extract_functions(hierarchical_code)
-            # TODO: remove unused functions
 
             # Create a dependency graph
             dependency_graph = create_dependency_graph(functions)
