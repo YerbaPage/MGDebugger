@@ -12,7 +12,7 @@
 - [Introduction](#introduction)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
-  - [Configuring the VLLM Server](#configuring-the-vllm-server)
+  - [Configuring the vLLM Server](#configuring-the-vllm-server)
 - [Usage](#usage)
   - [Running the Demo](#running-the-demo)
   - [Running Experiments](#running-experiments)
@@ -43,16 +43,16 @@ With MGDebugger, developers can efficiently debug complex codes and functions by
 Before running MGDebugger, ensure your environment meets the following requirements:
 
 - **Python**: Version 3.8 or later.
-- **vllm**: Version 0.6.0 or later. Required for model loading and inference. You can follow the [official vllm installation guide](https://github.com/vllm-project/vllm) to set it up.
+- **vLLM**: Version 0.6.0 or later. Required for model loading and inference. You can follow the [official installation guide](https://github.com/vllm-project/vllm) to set it up.
 - **Additional dependencies**: Install all necessary Python packages using the following command:
 
     ```bash
     pip install -r requirements.txt
     ```
 
-### Configuring the VLLM Server
+### Configuring the vLLM Server
 
-To launch the VLLM server with the `DeepSeek-Coder-V2-Lite-Instruct` model, execute the following command:
+To launch the vLLM server with the `DeepSeek-Coder-V2-Lite-Instruct` model, execute the following command:
 
 ```bash
 python -m vllm.entrypoints.openai.api_server \
@@ -69,7 +69,7 @@ This will initialize the model and start the server on port `18889`.
 
 ### Running the Demo
 
-We've prepared a demo code snippet to showcase MGDebugger's debugging capabilities. You can run the demo by executing the following command after starting the VLLM server:
+We've prepared a demo code snippet to showcase MGDebugger's debugging capabilities. You can run the demo by executing the following command after starting the vLLM server:
 
 ```bash
 python demo.py
@@ -77,7 +77,7 @@ python demo.py
 
 ### Running Experiments
 
-Once the VLLM server is up and running, start MGDebugger by executing:
+Once the vLLM server is up and running, start MGDebugger by executing:
 
 ```bash
 python main.py
