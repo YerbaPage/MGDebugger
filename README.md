@@ -26,7 +26,7 @@ With MGDebugger, developers can efficiently debug complex codes and functions by
 Before running MGDebugger, ensure your environment meets the following requirements:
 
 - **Python**: Version 3.8 or later.
-- **vllm**: Required for model loading and inference. You can follow the [official vllm installation guide](https://github.com/vllm-project/vllm) to set it up.
+- **vllm**: Version 0.6.0 or later. Required for model loading and inference. You can follow the [official vllm installation guide](https://github.com/vllm-project/vllm) to set it up.
 - **Additional dependencies**: Install all necessary Python packages using the following command:
 
     ```bash
@@ -48,7 +48,7 @@ python -m vllm.entrypoints.openai.api_server \
 
 This will initialize the model and start the server on port `18889`.
 
-### Running MGDebugger
+### Running MGDebugger Experiments
 
 Once the VLLM server is up and running, start MGDebugger by executing:
 
@@ -61,6 +61,14 @@ python main.py
 ### Log Management
 
 MGDebugger automatically stores all debugging and error logs in the `output_data` directory. You can review these logs to gain deeper insights into debugging details and performance analysis.
+
+## MGDebugger Demo
+
+We've also prepared a demo code snippet to showcase MGDebugger's debugging capabilities. You can run the demo by executing the following command after starting the VLLM server:
+
+```bash
+python demo.py
+```
 
 ## Performance
 
