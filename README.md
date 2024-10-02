@@ -1,7 +1,24 @@
+<div align="center">
+
 # MGDebugger: Multi-Granularity LLM Debugger
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-brightgreen)](https://www.python.org/)
+
+</div>
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Configuring the VLLM Server](#configuring-the-vllm-server)
+- [Usage](#usage)
+  - [Running the Demo](#running-the-demo)
+  - [Running Experiments](#running-experiments)
+  - [Log Management](#log-management)
+- [Performance](#performance)
+- [Contributing](#contributing)
 
 ## Introduction
 
@@ -48,7 +65,17 @@ python -m vllm.entrypoints.openai.api_server \
 
 This will initialize the model and start the server on port `18889`.
 
-### Running MGDebugger Experiments
+## Usage
+
+### Running the Demo
+
+We've prepared a demo code snippet to showcase MGDebugger's debugging capabilities. You can run the demo by executing the following command after starting the VLLM server:
+
+```bash
+python demo.py
+```
+
+### Running Experiments
 
 Once the VLLM server is up and running, start MGDebugger by executing:
 
@@ -62,28 +89,20 @@ python main.py
 
 MGDebugger automatically stores all debugging and error logs in the `output_data` directory. You can review these logs to gain deeper insights into debugging details and performance analysis.
 
-## MGDebugger Demo
-
-We've also prepared a demo code snippet to showcase MGDebugger's debugging capabilities. You can run the demo by executing the following command after starting the VLLM server:
-
-```bash
-python demo.py
-```
-
 ## Performance
 
 The table below highlights the performance of different methods compared to the baseline (No-Debugging) on the HumanEval and MBPP datasets using the DeepSeek-Coder-V2-Lite model.
 
-| Method                        | HumanEval Acc. (\%) | Δ Acc. (\%) | HumanEval RSR (\%) | MBPP Acc. (\%) | Δ Acc. (\%) | MBPP RSR (\%) |
-|------------------------------|---------------------|-------------|--------------------|---------------|-------------|--------------|
-| No-Debugging                  | 76.8                | --          | --                 | 67.2          | --          | --           |
-| Simple Feedback               | 82.3                | +5.5        | 23.7               | 69.4          | +2.2        | 6.7          |
-| Self-Edit                     | 82.9                | +6.1        | 26.3               | 71.2          | +4.0        | 12.2         |
-| LDB (Block)                   | 84.1                | +7.3        | 31.6               | 74.0          | +6.8        | 20.7         |
-| Self-Debugging (Expl.)        | 87.2                | +10.4       | 44.7               | 73.4          | +6.2        | 18.9         |
-| Self-Debugging (Trace)        | 86.0                | +9.2        | 39.5               | 72.6          | +5.3        | 16.5         |
-| Reflexion                     | 90.9                | +14.1       | 60.5               | 76.6          | +9.4        | 28.7         |
-| **Our Approach**              | **94.5**            | **+17.7**   | **76.3**           | **80.0**      | **+12.8**   | **39.0**     |
+| Method                        | HumanEval Acc. (%) | Δ Acc. (%) | HumanEval RSR (%) | MBPP Acc. (%) | Δ Acc. (%) | MBPP RSR (%) |
+|------------------------------|--------------------|------------|-------------------|---------------|------------|--------------|
+| No-Debugging                  | 76.8               | --         | --                | 67.2          | --         | --           |
+| Simple Feedback               | 82.3               | +5.5       | 23.7              | 69.4          | +2.2       | 6.7          |
+| Self-Edit                     | 82.9               | +6.1       | 26.3              | 71.2          | +4.0       | 12.2         |
+| LDB (Block)                   | 84.1               | +7.3       | 31.6              | 74.0          | +6.8       | 20.7         |
+| Self-Debugging (Expl.)        | 87.2               | +10.4      | 44.7              | 73.4          | +6.2       | 18.9         |
+| Self-Debugging (Trace)        | 86.0               | +9.2       | 39.5              | 72.6          | +5.3       | 16.5         |
+| Reflexion                     | 90.9               | +14.1      | 60.5              | 76.6          | +9.4       | 28.7         |
+| **Our Approach**              | **94.5**           | **+17.7**  | **76.3**          | **80.0**      | **+12.8**  | **39.0**     |
 
 Our approach achieved the highest accuracy on both HumanEval and MBPP datasets, with a remarkable improvement of +17.7% and +12.8% in accuracy over the baseline, respectively. The Repair Success Rate (RSR) was also significantly higher than other methods, demonstrating the effectiveness of our debugging strategy in fixing diverse code issues.
 
