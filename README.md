@@ -108,4 +108,4 @@ Our approach achieved the highest accuracy on both HumanEval and MBPP datasets, 
 
 ## Contributing
 
-We warmly welcome contributions to MGDebugger! If you have suggestions, improvements, or bug reports, feel free to open an issue or submit a pull request on our GitHub repository. We appreciate your feedback and look forward to building MGDebugger together with the community!
+We warmly welcome contributions to MGDebugger! We appreciate your feedback and look forward to building MGDebugger together with the community!
