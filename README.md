@@ -44,7 +44,7 @@ Before running MGDebugger, ensure your environment meets the following requireme
 
 - **Python**: Version 3.8 or later.
 - **vLLM**: Version 0.6.0 or later. Required for model loading and inference. You can follow the [official installation guide](https://github.com/vllm-project/vllm) to set it up.
-- **Additional dependencies**: Install all necessary Python packages using the following command:
+- **Additional dependencies**: Install all necessary Python packages using the following command (There are some packages not supported on Mac in the `requirements.txt` such as auto_gptq and autoawq, you can remove these requirements if you won't need them to load quantized models):
 
     ```bash
     pip install -r requirements.txt
