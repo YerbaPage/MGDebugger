@@ -9,16 +9,18 @@
 
 ## Table of Contents
 
-- [Introduction](#introduction)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Configuring the vLLM Server](#configuring-the-vllm-server)
-- [Usage](#usage)
-  - [Running the Demo](#running-the-demo)
-  - [Running Experiments](#running-experiments)
-  - [Log Management](#log-management)
-- [Performance](#performance)
-- [Contributing](#contributing)
+- [MGDebugger: Multi-Granularity LLM Debugger](#mgdebugger-multi-granularity-llm-debugger)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Configuring the vLLM Server](#configuring-the-vllm-server)
+  - [Usage](#usage)
+    - [Running the Demo](#running-the-demo)
+    - [Running Experiments](#running-experiments)
+    - [Log Management](#log-management)
+  - [Performance](#performance)
+  - [Contributing](#contributing)
 
 ## Introduction
 
@@ -27,12 +29,12 @@ MGDebugger is a hierarchical LLM code debugging method designed to isolate, iden
 With MGDebugger, developers can efficiently debug complex codes and functions by performing granular analysis, reducing debugging time, and improving the success rate of resolving complex issues.
 
 <div align="center">
-    <img src="figures/overview_v1_page.jpg" alt="MGDebugger Overview" width="800"/>
+    <img src="figures/overview.png" alt="MGDebugger Overview" width="800"/>
     <p>MGDebugger System Architecture Overview</p>
 </div>
 
 <div align="center">
-    <img src="figures/subfunction_debug_page.jpg" alt="Subfunction Debugging" width="800"/>
+    <img src="figures/subfunction_debug.png" alt="Subfunction Debugging" width="800"/>
     <p>Subfunction Debugging Module</p>
 </div>
 
@@ -44,7 +46,8 @@ Before running MGDebugger, ensure your environment meets the following requireme
 
 - **Python**: Version 3.8 or later.
 - **vLLM**: Version 0.6.0 or later. Required for model loading and inference. You can follow the [official installation guide](https://github.com/vllm-project/vllm) to set it up.
-- **Additional dependencies**: Install all necessary Python packages using the following command (There are some packages not supported on Mac in the `requirements.txt` such as auto_gptq and autoawq, you can remove these requirements if you won't need them to load quantized models):
+- **Additional dependencies**: Install all necessary Python packages using the following command:
+  > There are some packages not supported on Mac such as auto_gptq and autoawq, you can remove these requirements if you won't need them to load quantized models.
 
     ```bash
     pip install -r requirements.txt
