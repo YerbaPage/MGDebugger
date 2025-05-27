@@ -1,0 +1,5858 @@
+------------------------------
+Debug iter: 10
+
+Prompt: 
+
+
+def is_palindrome(string: str) -> bool:
+    """ Test if given string is a palindrome """
+    return string == string[::-1]
+
+
+def make_palindrome(string: str) -> str:
+    """ Find the shortest palindrome that begins with a supplied string.
+    Algorithm idea is simple:
+    - Find the longest postfix of supplied string that is a palindrome.
+    - Append to the end of the string reverse of a string prefix that comes before the palindromic suffix.
+    >>> make_palindrome('')
+    ''
+    >>> make_palindrome('cat')
+    'catac'
+    >>> make_palindrome('cata')
+    'catac'
+    """
+
+
+----------
+Canonical solution: 
+    if not string:
+        return ''
+
+    beginning_of_suffix = 0
+
+    while not is_palindrome(string[beginning_of_suffix:]):
+        beginning_of_suffix += 1
+
+    return string + string[:beginning_of_suffix][::-1]
+
+
+----------
+Implementation 0: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+
+
+def is_palindrome(string: str) -> bool:
+    """ Test if given string is a palindrome """
+    return string == string[::-1]
+
+
+def make_palindrome(string: str) -> str:
+    """ Find the shortest palindrome that begins with a supplied string.
+    Algorithm idea is simple:
+    - Find the longest postfix of supplied string that is a palindrome.
+    - Append to the end of the string reverse of a string prefix that comes before the palindromic suffix.
+    >>> make_palindrome('')
+    ''
+    >>> make_palindrome('cat')
+    'catac'
+    >>> make_palindrome('cata')
+    'catac'
+    """
+
+
+def is_palindrome(string: str) -> bool:
+    """ Test if given string is a palindrome """
+    return string == string[::-1]
+
+def make_palindrome(string: str) -> str:
+    """ Find the shortest palindrome that begins with a supplied string.
+    Algorithm idea is simple:
+    - Find the longest postfix of supplied string that is a palindrome.
+    - Append to the end of the string reverse of a string prefix that comes before the palindromic suffix.
+    """
+    if is_palindrome(string):
+        return string
+    for i in range(len(string), 0, -1):
+        if is_palindrome(string[:i]):
+            return string + string[i-1::-1]
+    return string + string[::-1]
+
+# Unit test
+assert make_palindrome('') == ''
+
+# Additional tests
+assert make_palindrome('cat') == 'catac'
+assert make_palindrome('cata') == 'catac'
+
+
+----------
+Implementation 1: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def is_palindrome(string: str) -> bool:
+    """ Test if given string is a palindrome """
+    return string == string[::-1]
+
+
+def make_palindrome(string: str) -> str:
+    """ Find the shortest palindrome that begins with a supplied string.
+    Algorithm idea is simple:
+    - Find the longest postfix of supplied string that is a palindrome.
+    - Append to the end of the string reverse of a string prefix that comes before the palindromic suffix.
+    """
+    if is_palindrome(string):
+        return string
+    for i in range(len(string), 0, -1):
+        if is_palindrome(string[:i]):
+            return string + string[i-1::-1]
+    return string + string[::-1]
+
+# Unit test
+assert make_palindrome('') == ''
+
+# Additional tests
+assert make_palindrome('cat') == 'catac'
+assert make_palindrome('cata') == 'catac'
+
+----------
+Implementation 2: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def is_palindrome(string: str) -> bool:
+    """ Test if given string is a palindrome """
+    return string == string[::-1]
+
+
+def make_palindrome(string: str) -> str:
+    """ Find the shortest palindrome that begins with a supplied string.
+    Algorithm idea is simple:
+    - Find the longest postfix of supplied string that is a palindrome.
+    - Append to the end of the string reverse of a string prefix that comes before the palindromic suffix.
+    """
+    if string == '' or is_palindrome(string):
+        return string
+    for i in range(len(string), 0, -1):
+        if is_palindrome(string[:i]):
+            return string + string[i-1::-1]
+    return string + string[::-1]
+
+# Unit test
+assert make_palindrome('') == ''
+
+# Additional tests
+assert make_palindrome('cat') == 'catac'
+assert make_palindrome('cata') == 'catac'
+
+----------
+Implementation 3: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def is_palindrome(string: str) -> bool:
+    """ Test if given string is a palindrome """
+    return string == string[::-1]
+
+
+def make_palindrome(string: str) -> str:
+    """ Find the shortest palindrome that begins with a supplied string.
+    Algorithm idea is simple:
+    - Find the longest postfix of supplied string that is a palindrome.
+    - Append to the end of the string reverse of a string prefix that comes before the palindromic suffix.
+    """
+    if string == '' or is_palindrome(string):
+        return string
+    for i in range(len(string), 0, -1):
+        if is_palindrome(string[:i]):
+            return string + string[i-1::-1]
+    return string + string[::-1]
+
+# Unit test
+assert make_palindrome('') == ''
+
+# Additional tests
+assert make_palindrome('cat') == 'catac'
+assert make_palindrome('cata') == 'catac'
+
+----------
+Implementation 4: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def is_palindrome(string: str) -> bool:
+    """ Test if given string is a palindrome """
+    return string == string[::-1]
+
+
+def make_palindrome(string: str) -> str:
+    """ Find the shortest palindrome that begins with a supplied string.
+    Algorithm idea is simple:
+    - Find the longest postfix of supplied string that is a palindrome.
+    - Append to the end of the string reverse of a string prefix that comes before the palindromic suffix.
+    """
+    if string == '' or is_palindrome(string):
+        return string
+    for i in range(len(string)-1, 0, -1):
+        if is_palindrome(string[:i]):
+            return string + string[i-1::-1]
+    return string + string[::-1]
+
+# Unit test
+assert make_palindrome('') == ''
+
+# Additional tests
+assert make_palindrome('cat') == 'catac'
+assert make_palindrome('cata') == 'catac'
+
+----------
+Implementation 5: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def is_palindrome(string: str) -> bool:
+    """ Test if given string is a palindrome """
+    return string == string[::-1]
+
+
+def make_palindrome(string: str) -> str:
+    """ Find the shortest palindrome that begins with a supplied string.
+    Algorithm idea is simple:
+    - Find the longest postfix of supplied string that is a palindrome.
+    - Append to the end of the string reverse of a string prefix that comes before the palindromic suffix.
+    """
+    if string == '' or is_palindrome(string):
+        return string
+    for i in range(len(string)-1, 0, -1):
+        if is_palindrome(string[:i]):
+            return string + string[i-1::-1]
+    return string + string[::-1]
+
+# Unit test
+assert make_palindrome('') == ''
+
+# Additional tests
+assert make_palindrome('cat') == 'catac'
+assert make_palindrome('cata') == 'catac'
+
+----------
+Implementation 6: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def is_palindrome(string: str) -> bool:
+    """ Test if given string is a palindrome """
+    return string == string[::-1]
+
+
+def make_palindrome(string: str) -> str:
+    """ Find the shortest palindrome that begins with a supplied string.
+    Algorithm idea is simple:
+    - Find the longest postfix of supplied string that is a palindrome.
+    - Append to the end of the string reverse of a string prefix that comes before the palindromic suffix.
+    """
+    if string == '' or is_palindrome(string):
+        return string
+    for i in range(len(string)-1, 0, -1):
+        if is_palindrome(string[:i]):
+            return string + string[i-1::-1]
+    return string + string[::-1]
+
+# Unit test
+assert make_palindrome('') == ''
+
+# Additional tests
+assert make_palindrome('cat') == 'tacat'
+assert make_palindrome('cata') == 'catac'
+
+----------
+Implementation 7: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def is_palindrome(string: str) -> bool:
+    """ Test if given string is a palindrome """
+    return string == string[::-1]
+
+
+def make_palindrome(string: str) -> str:
+    """ Find the shortest palindrome that begins with a supplied string.
+    Algorithm idea is simple:
+    - Find the longest postfix of supplied string that is a palindrome.
+    - Append to the end of the string reverse of a string prefix that comes before the palindromic suffix.
+    """
+    if string == '' or is_palindrome(string):
+        return string
+    for i in range(len(string)-1, 0, -1):
+        if is_palindrome(string[:i]):
+            return string + string[i-1::-1]
+    return string + string[::-1]
+
+# Unit test
+assert make_palindrome('') == ''
+
+# Additional tests
+assert make_palindrome('cat') == 'tacat'
+assert make_palindrome('cata') == 'catac'
+
+----------
+Implementation 8: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def is_palindrome(string: str) -> bool:
+    """ Test if given string is a palindrome """
+    return string == string[::-1]
+
+
+def make_palindrome(string: str) -> str:
+    """ Find the shortest palindrome that begins with a supplied string.
+    Algorithm idea is simple:
+    - Find the longest postfix of supplied string that is a palindrome.
+    - Append to the end of the string reverse of a string prefix that comes before the palindromic suffix.
+    """
+    if string == '':
+        return ''
+    for i in range(len(string)-1, 0, -1):
+        if is_palindrome(string[:i]):
+            return string + string[i-1::-1]
+    return string + string[::-1]
+
+# Unit test
+assert make_palindrome('') == ''
+
+# Additional tests
+assert make_palindrome('cat') == 'tacat'
+assert make_palindrome('cata') == 'catac'
+
+----------
+Implementation 9: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def is_palindrome(string: str) -> bool:
+    """ Test if given string is a palindrome """
+    return string == string[::-1]
+
+
+def make_palindrome(string: str) -> str:
+    """ Find the shortest palindrome that begins with a supplied string.
+    Algorithm idea is simple:
+    - Find the longest postfix of supplied string that is a palindrome.
+    - Append to the end of the string reverse of a string prefix that comes before the palindromic suffix.
+    """
+    if is_palindrome(string):
+        return string
+    for i in range(len(string)-1, 0, -1):
+        if is_palindrome(string[:i]):
+            return string + string[i-1::-1]
+    return string + string[::-1]
+
+# Unit test
+assert make_palindrome('') == ''
+
+# Additional tests
+assert make_palindrome('cat') == 'tacat'
+assert make_palindrome('cata') == 'catac'
+
+----------
+Implementation 10: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def is_palindrome(string: str) -> bool:
+    """ Test if given string is a palindrome """
+    return string == string[::-1]
+
+
+def make_palindrome(string: str) -> str:
+    """ Find the shortest palindrome that begins with a supplied string.
+    Algorithm idea is simple:
+    - Find the longest postfix of supplied string that is a palindrome.
+    - Append to the end of the string reverse of a string prefix that comes before the palindromic suffix.
+    """
+    if is_palindrome(string):
+        return string
+    for i in range(len(string)-1, 0, -1):
+        if is_palindrome(string[:i]):
+            return string + string[i-1::-1]
+    return string + string[::-1]
+
+# Unit test
+assert make_palindrome('') == ''
+
+# Additional tests
+assert make_palindrome('cat') == 'tacat'
+assert make_palindrome('cata') == 'catac'
+
+----------
+--------------------
+------------------------------
+Debug iter: 6
+
+Prompt: 
+
+
+def fibfib(n: int):
+    """The FibFib number sequence is a sequence similar to the Fibbonacci sequnece that's defined as follows:
+    fibfib(0) == 0
+    fibfib(1) == 0
+    fibfib(2) == 1
+    fibfib(n) == fibfib(n-1) + fibfib(n-2) + fibfib(n-3).
+    Please write a function to efficiently compute the n-th element of the fibfib number sequence.
+    >>> fibfib(1)
+    0
+    >>> fibfib(5)
+    4
+    >>> fibfib(8)
+    24
+    """
+
+
+----------
+Canonical solution: 
+    if n == 0:
+        return 0
+    if n == 1:
+        return 0
+    if n == 2:
+        return 1
+    return fibfib(n - 1) + fibfib(n - 2) + fibfib(n - 3)
+
+
+----------
+Implementation 0: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+
+
+def fibfib(n: int):
+    """The FibFib number sequence is a sequence similar to the Fibbonacci sequnece that's defined as follows:
+    fibfib(0) == 0
+    fibfib(1) == 0
+    fibfib(2) == 1
+    fibfib(n) == fibfib(n-1) + fibfib(n-2) + fibfib(n-3).
+    Please write a function to efficiently compute the n-th element of the fibfib number sequence.
+    >>> fibfib(1)
+    0
+    >>> fibfib(5)
+    4
+    >>> fibfib(8)
+    24
+    """
+
+
+def fibfib(n: int) -> int:
+    """The FibFib number sequence is a sequence similar to the Fibonacci sequence that's defined as follows:
+    fibfib(0) == 0
+    fibfib(1) == 0
+    fibfib(2) == 1
+    fibfib(n) == fibfib(n-1) + fibfib(n-2) + fibfib(n-3).
+    This function efficiently computes the n-th element of the fibfib number sequence.
+    """
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 0
+    elif n == 2:
+        return 1
+
+    # Initialize base cases
+    a, b, c = 0, 0, 1
+
+    # Compute the sequence iteratively
+    for _ in range(3, n + 1):
+        # Compute the next number in the sequence
+        next_number = a + b + c
+        # Update the previous three numbers
+        a, b, c = b, c, next_number
+
+    return a
+
+# Unit test
+assert fibfib(1) == 0
+
+
+----------
+Implementation 1: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def fibfib(n: int) -> int:
+    """The FibFib number sequence is a sequence similar to the Fibonacci sequence that's defined as follows:
+    fibfib(0) == 0
+    fibfib(1) == 0
+    fibfib(2) == 1
+    fibfib(n) == fibfib(n-1) + fibfib(n-2) + fibfib(n-3).
+    This function efficiently computes the n-th element of the fibfib number sequence.
+    """
+    if n == 0 or n == 1:
+        return 0
+    elif n == 2:
+        return 1
+
+    # Initialize base cases
+    a, b, c = 0, 0, 1
+
+    # Compute the sequence iteratively
+    for _ in range(3, n + 1):
+        # Compute the next number in the sequence
+        next_number = a + b + c
+        # Update the previous three numbers
+        a, b, c = b, c, next_number
+
+    return a
+
+# Unit test
+assert fibfib(1) == 0
+assert fibfib(5) == 4
+assert fibfib(8) == 24
+
+----------
+Implementation 2: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def fibfib(n: int) -> int:
+    """The FibFib number sequence is a sequence similar to the Fibonacci sequence that's defined as follows:
+    fibfib(0) == 0
+    fibfib(1) == 0
+    fibfib(2) == 1
+    fibfib(n) == fibfib(n-1) + fibfib(n-2) + fibfib(n-3).
+    This function efficiently computes the n-th element of the fibfib number sequence.
+    """
+    if n == 0 or n == 1:
+        return 0
+    elif n == 2:
+        return 1
+
+    # Initialize base cases
+    a, b, c = 0, 0, 1
+
+    # Compute the sequence iteratively
+    for _ in range(3, n + 1):
+        # Compute the next number in the sequence
+        next_number = a + b + c
+        # Update the previous three numbers
+        a, b, c = b, c, next_number
+
+    return a
+
+# Unit test
+assert fibfib(1) == 0
+assert fibfib(5) == 4
+assert fibfib(8) == 24
+
+----------
+Implementation 3: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def fibfib(n: int) -> int:
+    """The FibFib number sequence is a sequence similar to the Fibonacci sequence that's defined as follows:
+    fibfib(0) == 0
+    fibfib(1) == 0
+    fibfib(2) == 1
+    fibfib(n) == fibfib(n-1) + fibfib(n-2) + fibfib(n-3).
+    This function efficiently computes the n-th element of the fibfib number sequence.
+    """
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 0
+    elif n == 2:
+        return 1
+
+    # Initialize base cases
+    a, b, c = 0, 0, 1
+
+    # Compute the sequence iteratively
+    for _ in range(3, n + 1):
+        # Compute the next number in the sequence
+        next_number = a + b + c
+        # Update the previous three numbers
+        a, b, c = b, c, next_number
+
+    return a
+
+# Unit test
+assert fibfib(1) == 0
+assert fibfib(5) == 4
+assert fibfib(8) == 24
+
+----------
+Implementation 4: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def fibfib(n: int) -> int:
+    """The FibFib number sequence is a sequence similar to the Fibonacci sequence that's defined as follows:
+    fibfib(0) == 0
+    fibfib(1) == 0
+    fibfib(2) == 1
+    fibfib(n) == fibfib(n-1) + fibfib(n-2) + fibfib(n-3).
+    This function efficiently computes the n-th element of the fibfib number sequence.
+    """
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 0
+    elif n == 2:
+        return 1
+
+    # Initialize base cases
+    a, b, c = 0, 0, 1
+
+    # Compute the sequence iteratively
+    for _ in range(3, n + 1):
+        # Compute the next number in the sequence
+        next_number = a + b + c
+        # Update the previous three numbers
+        a, b, c = b, c, next_number
+
+    return a
+
+# Unit test
+assert fibfib(1) == 0
+assert fibfib(5) == 4
+assert fibfib(8) == 24
+
+----------
+Implementation 5: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def fibfib(n: int) -> int:
+    """The FibFib number sequence is a sequence similar to the Fibonacci sequence that's defined as follows:
+    fibfib(0) == 0
+    fibfib(1) == 0
+    fibfib(2) == 1
+    fibfib(n) == fibfib(n-1) + fibfib(n-2) + fibfib(n-3).
+    This function efficiently computes the n-th element of the fibfib number sequence.
+    """
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 0
+    elif n == 2:
+        return 1
+
+    # Initialize base cases
+    a, b, c = 0, 0, 1
+
+    # Compute the sequence iteratively
+    for _ in range(3, n + 1):
+        # Compute the next number in the sequence
+        next_number = a + b + c
+        # Update the previous three numbers
+        a, b, c = b, c, next_number
+
+    return a
+
+# Unit test
+assert fibfib(1) == 0
+assert fibfib(5) == 4
+assert fibfib(8) == 24
+
+----------
+Implementation 6: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def fibfib(n: int) -> int:
+    """The FibFib number sequence is a sequence similar to the Fibonacci sequence that's defined as follows:
+    fibfib(0) == 0
+    fibfib(1) == 0
+    fibfib(2) == 1
+    fibfib(n) == fibfib(n-1) + fibfib(n-2) + fibfib(n-3).
+    This function efficiently computes the n-th element of the fibfib number sequence.
+    """
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 0
+    elif n == 2:
+        return 1
+
+    # Initialize base cases
+    a, b, c = 0, 0, 1
+
+    # Compute the sequence iteratively
+    for _ in range(3, n + 1):
+        # Compute the next number in the sequence
+        next_number = a + b + c
+        # Update the previous three numbers
+        a, b, c = b, c, next_number
+
+    return c
+
+# Unit test
+assert fibfib(1) == 0
+assert fibfib(5) == 4
+assert fibfib(8) == 24
+
+----------
+--------------------
+------------------------------
+Debug iter: 1
+
+Prompt: 
+
+FIX = """
+Add more test cases.
+"""
+
+def vowels_count(s):
+    """Write a function vowels_count which takes a string representing
+    a word as input and returns the number of vowels in the string.
+    Vowels in this case are 'a', 'e', 'i', 'o', 'u'. Here, 'y' is also a
+    vowel, but only when it is at the end of the given word.
+
+    Example:
+    >>> vowels_count("abcde")
+    2
+    >>> vowels_count("ACEDY")
+    3
+    """
+
+
+----------
+Canonical solution: 
+    vowels = "aeiouAEIOU"
+    n_vowels = sum(c in vowels for c in s)
+    if s[-1] == 'y' or s[-1] == 'Y':
+        n_vowels += 1
+    return n_vowels
+
+
+----------
+Implementation 0: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+
+FIX = """
+Add more test cases.
+"""
+
+def vowels_count(s):
+    """Write a function vowels_count which takes a string representing
+    a word as input and returns the number of vowels in the string.
+    Vowels in this case are 'a', 'e', 'i', 'o', 'u'. Here, 'y' is also a
+    vowel, but only when it is at the end of the given word.
+
+    Example:
+    >>> vowels_count("abcde")
+    2
+    >>> vowels_count("ACEDY")
+    3
+    """
+
+
+def vowels_count(s):
+    """Write a function vowels_count which takes a string representing
+    a word as input and returns the number of vowels in the string.
+    Vowels in this case are 'a', 'e', 'i', 'o', 'u'. Here, 'y' is also a
+    vowel, but only when it is at the end of the given word.
+
+    Example:
+    >>> vowels_count("abcde")
+    2
+    >>> vowels_count("ACEDY")
+    3
+    """
+    vowels = 'aeiouAEIOU'
+    count = sum(1 for char in s if char in vowels)
+    if s and s[-1].lower() == 'y':
+        count += 1
+    return count
+
+# Unit tests
+assert vowels_count('abcde') == 2
+assert vowels_count('ACEDY') == 3
+assert vowels_count('rhythm') == 0
+assert vowels_count('Y') == 1
+assert vowels_count('') == 0
+assert vowels_count('quickly') == 2
+assert vowels_count('QUIET') == 3
+assert vowels_count('why') == 1
+
+
+----------
+Implementation 1: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def vowels_count(s):
+    """Write a function vowels_count which takes a string representing
+    a word as input and returns the number of vowels in the string.
+    Vowels in this case are 'a', 'e', 'i', 'o', 'u'. Here, 'y' is also a
+    vowel, but only when it is at the end of the given word.
+
+    Example:
+    >>> vowels_count("abcde")
+    2
+    >>> vowels_count("ACEDY")
+    3
+    """
+    vowels = 'aeiouAEIOU'
+    count = sum(1 for char in s if char in vowels)
+    if s and s[-1].lower() == 'y':
+        count += 1
+    return count
+
+----------
+--------------------
+------------------------------
+Debug iter: 4
+
+Prompt: 
+
+def circular_shift(x, shift):
+    """Circular shift the digits of the integer x, shift the digits right by shift
+    and return the result as a string.
+    If shift > number of digits, return digits reversed.
+    >>> circular_shift(12, 1)
+    "21"
+    >>> circular_shift(12, 2)
+    "12"
+    """
+
+
+----------
+Canonical solution: 
+    s = str(x)
+    if shift > len(s):
+        return s[::-1]
+    else:
+        return s[len(s) - shift:] + s[:len(s) - shift]
+
+
+----------
+Implementation 0: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+
+def circular_shift(x, shift):
+    """Circular shift the digits of the integer x, shift the digits right by shift
+    and return the result as a string.
+    If shift > number of digits, return digits reversed.
+    >>> circular_shift(12, 1)
+    "21"
+    >>> circular_shift(12, 2)
+    "12"
+    """
+
+
+def circular_shift(x, shift):
+    """Circular shift the digits of the integer x, shift the digits right by shift
+    and return the result as a string.
+    If shift > number of digits, return digits reversed.
+    >>> circular_shift(12, 1)
+    "21"
+    >>> circular_shift(12, 2)
+    "12"
+    """
+    # Convert the integer to a string to work with individual digits
+    x_str = str(x)
+    # Find the number of digits in the integer
+    num_digits = len(x_str)
+    
+    # If shift is greater than or equal to the number of digits, reverse the digits
+    if shift >= num_digits:
+        return x_str[::-1]
+    
+    # Perform the circular shift
+    shift %= num_digits  # In case shift is greater than num_digits
+    shifted_str = x_str[-shift:] + x_str[:-shift]
+    
+    return shifted_str
+
+# Unit test
+assert circular_shift(12, 1) == '21'
+
+
+----------
+Implementation 1: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def circular_shift(x, shift):
+    """Circular shift the digits of the integer x, shift the digits right by shift
+    and return the result as a string.
+    If shift > number of digits, return digits reversed.
+    >>> circular_shift(12, 1)
+    "21"
+    >>> circular_shift(12, 2)
+    "12"
+    """
+    # Convert the integer to a string to work with individual digits
+    x_str = str(x)
+    # Find the number of digits in the integer
+    num_digits = len(x_str)
+    
+    # If shift is greater than or equal to the number of digits, reverse the digits
+    if shift >= num_digits:
+        return x_str[::-1]
+    
+    # Perform the circular shift
+    shift %= num_digits  # In case shift is greater than num_digits
+    shifted_str = x_str[-shift:] + x_str[:-shift]
+    
+    return shifted_str
+
+# Unit tests
+assert circular_shift(12, 1) == '21'
+assert circular_shift(12, 2) == '12'
+
+----------
+Implementation 2: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def circular_shift(x, shift):
+    """Circular shift the digits of the integer x, shift the digits right by shift
+    and return the result as a string.
+    If shift > number of digits, return digits reversed.
+    >>> circular_shift(12, 1)
+    "21"
+    >>> circular_shift(12, 2)
+    "12"
+    """
+    # Convert the integer to a string to work with individual digits
+    x_str = str(x)
+    # Find the number of digits in the integer
+    num_digits = len(x_str)
+    
+    # If shift is greater than or equal to the number of digits - 1, reverse the digits
+    if shift >= num_digits - 1:
+        return x_str[::-1]
+    
+    # Perform the circular shift
+    shift %= num_digits  # In case shift is greater than num_digits
+    shifted_str = x_str[-shift:] + x_str[:-shift]
+    
+    return shifted_str
+
+# Unit tests
+assert circular_shift(12, 1) == '21'
+assert circular_shift(12, 2) == '12'
+
+----------
+Implementation 3: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def circular_shift(x, shift):
+    """Circular shift the digits of the integer x, shift the digits right by shift
+    and return the result as a string.
+    If shift > number of digits, return digits reversed.
+    >>> circular_shift(12, 1)
+    "21"
+    >>> circular_shift(12, 2)
+    "12"
+    """
+    # Convert the integer to a string to work with individual digits
+    x_str = str(x)
+    # Find the number of digits in the integer
+    num_digits = len(x_str)
+    
+    # If shift is greater than or equal to the number of digits, reverse the digits
+    if shift >= num_digits:
+        return x_str[::-1]
+    
+    # Perform the circular shift
+    shift %= num_digits  # In case shift is greater than num_digits
+    shifted_str = x_str[-shift:] + x_str[:-shift]
+    
+    return shifted_str
+
+# Unit tests
+assert circular_shift(12, 1) == '21'
+assert circular_shift(12, 2) == '12'
+
+----------
+Implementation 4: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def circular_shift(x, shift):
+    """Circular shift the digits of the integer x, shift the digits right by shift
+    and return the result as a string.
+    If shift > number of digits, return digits reversed.
+    >>> circular_shift(12, 1)
+    "21"
+    >>> circular_shift(12, 2)
+    "12"
+    """
+    # Convert the integer to a string to work with individual digits
+    x_str = str(x)
+    # Find the number of digits in the integer
+    num_digits = len(x_str)
+    
+    # If shift is greater than the number of digits, reverse the digits
+    if shift > num_digits:
+        return x_str[::-1]
+    
+    # Perform the circular shift
+    shift %= num_digits  # In case shift is greater than num_digits
+    shifted_str = x_str[-shift:] + x_str[:-shift]
+    
+    return shifted_str
+
+# Unit tests
+assert circular_shift(12, 1) == '21'
+assert circular_shift(12, 2) == '12'
+
+----------
+--------------------
+------------------------------
+Debug iter: 3
+
+Prompt: 
+
+def is_simple_power(x, n):
+    """Your task is to write a function that returns true if a number x is a simple
+    power of n and false in other cases.
+    x is a simple power of n if n**int=x
+    For example:
+    is_simple_power(1, 4) => true
+    is_simple_power(2, 2) => true
+    is_simple_power(8, 2) => true
+    is_simple_power(3, 2) => false
+    is_simple_power(3, 1) => false
+    is_simple_power(5, 3) => false
+    """
+
+
+----------
+Canonical solution: 
+    if (n == 1): 
+        return (x == 1) 
+    power = 1
+    while (power < x): 
+        power = power * n 
+    return (power == x) 
+
+
+----------
+Implementation 0: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+
+def is_simple_power(x, n):
+    """Your task is to write a function that returns true if a number x is a simple
+    power of n and false in other cases.
+    x is a simple power of n if n**int=x
+    For example:
+    is_simple_power(1, 4) => true
+    is_simple_power(2, 2) => true
+    is_simple_power(8, 2) => true
+    is_simple_power(3, 2) => false
+    is_simple_power(3, 1) => false
+    is_simple_power(5, 3) => false
+    """
+
+
+
+----------
+Implementation 1: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def is_simple_power(x, n):
+    """Your task is to write a function that returns true if a number x is a simple
+    power of n and false in other cases.
+    x is a simple power of n if n**int=x
+    For example:
+    is_simple_power(1, 4) => true
+    is_simple_power(2, 2) => true
+    is_simple_power(8, 2) => true
+    is_simple_power(3, 2) => false
+    is_simple_power(3, 1) => false
+    is_simple_power(5, 3) => false
+    """
+    return n**int(x**0.5) == x
+
+----------
+Implementation 2: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+import math
+
+def is_simple_power(x, n):
+    """Your task is to write a function that returns true if a number x is a simple
+    power of n and false in other cases.
+    x is a simple power of n if n**int=x
+    For example:
+    is_simple_power(1, 4) => true
+    is_simple_power(2, 2) => true
+    is_simple_power(8, 2) => true
+    is_simple_power(3, 2) => false
+    is_simple_power(3, 1) => false
+    is_simple_power(5, 3) => false
+    """
+    return math.log(x, n).is_integer()
+
+----------
+Implementation 3: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+import math
+
+def is_simple_power(x, n):
+    """Your task is to write a function that returns true if a number x is a simple
+    power of n and false in other cases.
+    x is a simple power of n if n**int=x
+    For example:
+    is_simple_power(1, 4) => true
+    is_simple_power(2, 2) => true
+    is_simple_power(8, 2) => true
+    is_simple_power(3, 2) => false
+    is_simple_power(3, 1) => false
+    is_simple_power(5, 3) => false
+    """
+    if n == 1:
+        return False
+    return math.log(x, n).is_integer()
+
+----------
+--------------------
+------------------------------
+Debug iter: 3
+
+Prompt: 
+
+def iscube(a):
+    '''
+    Write a function that takes an integer a and returns True 
+    if this ingeger is a cube of some integer number.
+    Note: you may assume the input is always valid.
+    Examples:
+    iscube(1) ==> True
+    iscube(2) ==> False
+    iscube(-1) ==> True
+    iscube(64) ==> True
+    iscube(0) ==> True
+    iscube(180) ==> False
+    '''
+
+
+----------
+Canonical solution: 
+    a = abs(a)
+    return int(round(a ** (1. / 3))) ** 3 == a
+
+
+----------
+Implementation 0: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+
+def iscube(a):
+    '''
+    Write a function that takes an integer a and returns True 
+    if this ingeger is a cube of some integer number.
+    Note: you may assume the input is always valid.
+    Examples:
+    iscube(1) ==> True
+    iscube(2) ==> False
+    iscube(-1) ==> True
+    iscube(64) ==> True
+    iscube(0) ==> True
+    iscube(180) ==> False
+    '''
+
+
+def iscube(a):
+    '''
+    Write a function that takes an integer a and returns True 
+    if this integer is a cube of some integer number.
+    Note: you may assume the input is always valid.
+    Examples:
+    iscube(1) ==> True
+    iscube(2) ==> False
+    iscube(-1) ==> True
+    iscube(64) ==> True
+    iscube(0) ==> True
+    iscube(180) ==> False
+    '''
+    # The cube root of a number 'a' can be found by taking a**(1/3)
+    # If the cube root is an integer, then 'a' is a perfect cube
+    cube_root = abs(a) ** (1/3)
+    # Check if the cube root is an integer by comparing it with its integer cast
+    return cube_root.is_integer()
+
+# Unit test
+assert iscube(1) == True
+
+
+----------
+Implementation 1: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def iscube(a):
+    '''
+    Write a function that takes an integer a and returns True 
+    if this integer is a cube of some integer number.
+    Note: you may assume the input is always valid.
+    Examples:
+    iscube(1) ==> True
+    iscube(2) ==> False
+    iscube(-1) ==> True
+    iscube(64) ==> True
+    iscube(0) ==> True
+    iscube(180) ==> False
+    '''
+    # The cube root of a number 'a' can be found by taking a**(1/3)
+    # If the cube root is an integer, then 'a' is a perfect cube
+    cube_root = abs(a) ** (1/3)
+    # Check if the cube root is an integer by comparing it with its rounded value
+    return cube_root == round(cube_root)
+
+----------
+Implementation 2: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def iscube(a):
+    '''
+    Write a function that takes an integer a and returns True 
+    if this integer is a cube of some integer number.
+    Note: you may assume the input is always valid.
+    Examples:
+    iscube(1) ==> True
+    iscube(2) ==> False
+    iscube(-1) ==> True
+    iscube(64) ==> True
+    iscube(0) ==> True
+    iscube(180) ==> False
+    '''
+    # The cube root of a number 'a' can be found by taking a**(1/3)
+    # If the cube root is an integer, then 'a' is a perfect cube
+    cube_root = abs(a) ** (1/3)
+    # Check if the cube root is an integer by comparing it with its integer cast
+    return int(cube_root) ** 3 == abs(a)
+
+----------
+Implementation 3: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def iscube(a):
+    '''
+    Write a function that takes an integer a and returns True 
+    if this integer is a cube of some integer number.
+    Note: you may assume the input is always valid.
+    Examples:
+    iscube(1) ==> True
+    iscube(2) ==> False
+    iscube(-1) ==> True
+    iscube(64) ==> True
+    iscube(0) ==> True
+    iscube(180) ==> False
+    '''
+    # The cube root of a number 'a' can be found by taking a**(1/3)
+    # If the cube root is an integer, then 'a' is a perfect cube
+    cube_root = abs(a) ** (1/3)
+    # Check if the cube root is an integer by comparing it with its rounded value
+    return round(cube_root) ** 3 == abs(a)
+
+----------
+--------------------
+------------------------------
+Debug iter: 10
+
+Prompt: 
+
+def starts_one_ends(n):
+    """
+    Given a positive integer n, return the count of the numbers of n-digit
+    positive integers that start or end with 1.
+    """
+
+
+----------
+Canonical solution: 
+    if n == 1: return 1
+    return 18 * (10 ** (n - 2))
+
+
+----------
+Implementation 0: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+
+def starts_one_ends(n):
+    """
+    Given a positive integer n, return the count of the numbers of n-digit
+    positive integers that start or end with 1.
+    """
+
+
+def starts_one_ends(n):
+    """
+    Given a positive integer n, return the count of the numbers of n-digit
+    positive integers that start or end with 1.
+    """
+    if n == 1:
+        # If n is 1, then there's only two numbers that start or end with 1: 0 and 1.
+        return 2
+    else:
+        # Count numbers starting with 1 and ending with 1 separately, then subtract the double-counted ones.
+        starts_with_1 = 10 ** (n - 1)
+        ends_with_1 = 10 ** (n - 1)
+        starts_and_ends_with_1 = 10 ** (n - 2)
+        return starts_with_1 + ends_with_1 - starts_and_ends_with_1
+
+# Unit test
+assert starts_one_ends(2) == 18
+
+
+----------
+Implementation 1: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def starts_one_ends(n):
+    """
+    Given a positive integer n, return the count of the numbers of n-digit
+    positive integers that start or end with 1.
+    """
+    if n == 1:
+        # If n is 1, then there's only two numbers that start or end with 1: 0 and 1.
+        return 2
+    else:
+        # Count numbers starting with 1 and ending with 1 separately, then subtract the double-counted ones.
+        starts_with_1 = 1
+        ends_with_1 = 1
+        starts_and_ends_with_1 = 1
+        return starts_with_1 + ends_with_1 - starts_and_ends_with_1
+
+# Unit test
+assert starts_one_ends(2) == 18
+
+----------
+Implementation 2: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def starts_one_ends(n):
+    """
+    Given a positive integer n, return the count of the numbers of n-digit
+    positive integers that start or end with 1.
+    """
+    if n == 1:
+        # If n is 1, then there's only two numbers that start or end with 1: 0 and 1.
+        return 2
+    else:
+        # Count numbers starting with 1 and ending with 1 separately, then subtract the double-counted ones.
+        starts_with_1 = 2
+        ends_with_1 = 2 * 9 ** (n - 1)
+        starts_and_ends_with_1 = 1
+        return starts_with_1 + ends_with_1 - starts_and_ends_with_1
+
+# Unit test
+assert starts_one_ends(2) == 18
+
+----------
+Implementation 3: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def starts_one_ends(n):
+    """
+    Given a positive integer n, return the count of the numbers of n-digit
+    positive integers that start or end with 1.
+    """
+    if n == 1:
+        # If n is 1, then there's only two numbers that start or end with 1: 0 and 1.
+        return 2
+    else:
+        # Count numbers starting with 1 and ending with 1 separately, then subtract the double-counted ones.
+        starts_with_1 = 2
+        ends_with_1 = 2 * 9 ** (n - 2)
+        starts_and_ends_with_1 = 1
+        return starts_with_1 + ends_with_1 - starts_and_ends_with_1
+
+# Unit test
+assert starts_one_ends(2) == 18
+
+----------
+Implementation 4: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def starts_one_ends(n):
+    """
+    Given a positive integer n, return the count of the numbers of n-digit
+    positive integers that start or end with 1.
+    """
+    if n == 1:
+        # If n is 1, then there's only two numbers that start or end with 1: 0 and 1.
+        return 2
+    else:
+        # Count numbers starting with 1 and ending with 1 separately, then subtract the double-counted ones.
+        starts_with_1 = 9 ** (n - 1)
+        ends_with_1 = 9 ** (n - 1)
+        starts_and_ends_with_1 = 1
+        return starts_with_1 + ends_with_1 - starts_and_ends_with_1
+
+# Unit test
+assert starts_one_ends(2) == 18
+
+----------
+Implementation 5: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def starts_one_ends(n):
+    """
+    Given a positive integer n, return the count of the numbers of n-digit
+    positive integers that start or end with 1.
+    """
+    if n == 1:
+        # If n is 1, then there's only two numbers that start or end with 1: 0 and 1.
+        return 2
+    else:
+        # Count numbers starting with 1 and ending with 1 separately, then subtract the double-counted ones.
+        starts_with_1 = 9 ** (n - 1)
+        ends_with_1 = 9 ** (n - 2)
+        starts_and_ends_with_1 = 1
+        return starts_with_1 + ends_with_1 - starts_and_ends_with_1
+
+# Unit test
+assert starts_one_ends(2) == 18
+
+----------
+Implementation 6: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def starts_one_ends(n):
+    """
+    Given a positive integer n, return the count of the numbers of n-digit
+    positive integers that start or end with 1.
+    """
+    if n == 1:
+        # If n is 1, then there's only two numbers that start or end with 1: 0 and 1.
+        return 2
+    else:
+        # Count numbers starting with 1 and ending with 1 separately, then subtract the double-counted ones.
+        starts_with_1 = 9 ** (n - 1)
+        ends_with_1 = 9 ** (n - 1)
+        starts_and_ends_with_1 = 1
+        return starts_with_1 + ends_with_1 - starts_and_ends_with_1
+
+# Unit test
+assert starts_one_ends(2) == 18
+
+----------
+Implementation 7: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def starts_one_ends(n):
+    """
+    Given a positive integer n, return the count of the numbers of n-digit
+    positive integers that start or end with 1.
+    """
+    if n == 1:
+        # If n is 1, then there's only two numbers that start or end with 1: 0 and 1.
+        return 2
+    else:
+        # Count numbers starting with 1 and ending with 1 separately, then subtract the double-counted ones.
+        starts_with_1 = 9 ** (n - 1)
+        ends_with_1 = 9 ** (n - 1)
+        starts_and_ends_with_1 = 1
+        return starts_with_1 + ends_with_1 - starts_and_ends_with_1
+
+# Unit test
+assert starts_one_ends(2) == 18
+
+----------
+Implementation 8: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def starts_one_ends(n):
+    """
+    Given a positive integer n, return the count of the numbers of n-digit
+    positive integers that start or end with 1.
+    """
+    if n == 1:
+        # If n is 1, then there's only two numbers that start or end with 1: 0 and 1.
+        return 2
+    else:
+        # Count numbers starting with 1 and ending with 1 separately, then subtract the double-counted ones.
+        starts_with_1 = 9 * (10 ** (n - 2))
+        ends_with_1 = 9 * (10 ** (n - 2))
+        starts_and_ends_with_1 = 1
+        return starts_with_1 + ends_with_1 - starts_and_ends_with_1
+
+# Unit test
+assert starts_one_ends(2) == 18
+
+----------
+Implementation 9: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def starts_one_ends(n):
+    """
+    Given a positive integer n, return the count of the numbers of n-digit
+    positive integers that start or end with 1.
+    """
+    if n == 1:
+        # If n is 1, then there's only two numbers that start or end with 1: 0 and 1.
+        return 2
+    else:
+        # Count numbers starting with 1 and ending with 1 separately, then subtract the double-counted ones.
+        starts_with_1 = 9 * (10 ** (n - 1))
+        ends_with_1 = 9 * (10 ** (n - 1))
+        starts_and_ends_with_1 = 1
+        return starts_with_1 + ends_with_1 - starts_and_ends_with_1
+
+# Unit test
+assert starts_one_ends(2) == 18
+
+----------
+Implementation 10: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def starts_one_ends(n):
+    """
+    Given a positive integer n, return the count of the numbers of n-digit
+    positive integers that start or end with 1.
+    """
+    if n == 1:
+        # If n is 1, then there's only two numbers that start or end with 1: 0 and 1.
+        return 2
+    else:
+        # Count numbers starting with 1 and ending with 1 separately, then subtract the double-counted ones.
+        starts_with_1 = 9 * (10 ** (n - 2))
+        ends_with_1 = 9 * (10 ** (n - 2))
+        starts_and_ends_with_1 = 1
+        return starts_with_1 + ends_with_1 - starts_and_ends_with_1
+
+# Unit test
+assert starts_one_ends(2) == 18
+
+----------
+--------------------
+------------------------------
+Debug iter: 3
+
+Prompt: 
+
+def encode(message):
+    """
+    Write a function that takes a message, and encodes in such a 
+    way that it swaps case of all letters, replaces all vowels in 
+    the message with the letter that appears 2 places ahead of that 
+    vowel in the english alphabet. 
+    Assume only letters. 
+    
+    Examples:
+    >>> encode('test')
+    'TGST'
+    >>> encode('This is a message')
+    'tHKS KS C MGSSCGG'
+    """
+
+
+----------
+Canonical solution: 
+    vowels = "aeiouAEIOU"
+    vowels_replace = dict([(i, chr(ord(i) + 2)) for i in vowels])
+    message = message.swapcase()
+    return ''.join([vowels_replace[i] if i in vowels else i for i in message])
+
+
+----------
+Implementation 0: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+
+def encode(message):
+    """
+    Write a function that takes a message, and encodes in such a 
+    way that it swaps case of all letters, replaces all vowels in 
+    the message with the letter that appears 2 places ahead of that 
+    vowel in the english alphabet. 
+    Assume only letters. 
+    
+    Examples:
+    >>> encode('test')
+    'TGST'
+    >>> encode('This is a message')
+    'tHKS KS C MGSSCGG'
+    """
+
+
+def encode(message):
+    """
+    Write a function that takes a message, and encodes in such a 
+    way that it swaps case of all letters, replaces all vowels in 
+    the message with the letter that appears 2 places ahead of that 
+    vowel in the english alphabet. 
+    Assume only letters. 
+    
+    Examples:
+    >>> encode('test')
+    'TGST'
+    >>> encode('This is a message')
+    'tHKS KS C MGSSCGG'
+    """
+    vowels = 'aeiouAEIOU'
+    vowel_replacements = {'a': 'c', 'e': 'g', 'i': 'k', 'o': 'q', 'u': 'w',
+                          'A': 'C', 'E': 'G', 'I': 'K', 'O': 'Q', 'U': 'W'}
+    
+    encoded_message = ''
+    
+    for char in message:
+        if char in vowels:
+            encoded_message += vowel_replacements[char]
+        else:
+            encoded_message += char.swapcase()
+    
+    return encoded_message
+
+# Unit test
+assert encode('test') == 'TGST'
+assert encode('This is a message') == 'tHKS KS C MGSSCGG'
+
+
+----------
+Implementation 1: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def encode(message):
+    """
+    Write a function that takes a message, and encodes in such a 
+    way that it swaps case of all letters, replaces all vowels in 
+    the message with the letter that appears 2 places ahead of that 
+    vowel in the english alphabet. 
+    Assume only letters. 
+    
+    Examples:
+    >>> encode('test')
+    'TGST'
+    >>> encode('This is a message')
+    'tHKS KS C MGSSCGG'
+    """
+    vowels = 'aeiouAEIOU'
+    vowel_replacements = {'a': 'c', 'e': 'g', 'i': 'k', 'o': 'q', 'u': 'w',
+                          'A': 'C', 'E': 'G', 'I': 'K', 'O': 'Q', 'U': 'W'}
+    
+    encoded_message = ''
+    
+    for char in message:
+        if char in vowels:
+            encoded_message += vowel_replacements[char]
+        else:
+            encoded_message += char.swapcase()
+    
+    return encoded_message
+
+# Unit test
+assert encode('test') == 'TGST'
+assert encode('This is a message') == 'tHKS KS C MGSSCGG'
+
+----------
+Implementation 2: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def encode(message):
+    """
+    Write a function that takes a message, and encodes in such a 
+    way that it swaps case of all letters, replaces all vowels in 
+    the message with the letter that appears 2 places ahead of that 
+    vowel in the english alphabet. 
+    Assume only letters. 
+    
+    Examples:
+    >>> encode('test')
+    'TGST'
+    >>> encode('This is a message')
+    'tHKS KS C MGSSCGG'
+    """
+    vowels = 'aeiouAEIOU'
+    vowel_replacements = {'a': 'c', 'e': 'g', 'i': 'k', 'o': 'q', 'u': 'w',
+                          'A': 'C', 'E': 'G', 'I': 'K', 'O': 'Q', 'U': 'W'}
+    
+    encoded_message = ''
+    
+    for char in message:
+        if char in vowels:
+            encoded_message += vowel_replacements[char]
+        else:
+            encoded_message += char.swapcase()
+    
+    return encoded_message
+
+# Unit test
+assert encode('test') == 'TGST'
+assert encode('This is a message') == 'tHKS KS C MGSSCGG'
+
+----------
+Implementation 3: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def encode(message):
+    """
+    Write a function that takes a message, and encodes in such a 
+    way that it swaps case of all letters, replaces all vowels in 
+    the message with the letter that appears 2 places ahead of that 
+    vowel in the english alphabet. 
+    Assume only letters. 
+    
+    Examples:
+    >>> encode('test')
+    'TGST'
+    >>> encode('This is a message')
+    'tHKS KS C MGSSCGG'
+    """
+    vowels = 'aeiouAEIOU'
+    vowel_replacements = {'a': 'c', 'e': 'g', 'i': 'k', 'o': 'q', 'u': 'w',
+                          'A': 'C', 'E': 'G', 'I': 'K', 'O': 'Q', 'U': 'W'}
+    
+    encoded_message = ''
+    
+    for char in message:
+        if char in vowels:
+            encoded_message += vowel_replacements[char].swapcase()
+        else:
+            encoded_message += char.swapcase()
+    
+    return encoded_message
+
+# Unit test
+assert encode('test') == 'TGST'
+assert encode('This is a message') == 'tHKS KS C MGSSCGG'
+
+----------
+--------------------
+------------------------------
+Debug iter: 2
+
+Prompt: 
+
+def count_nums(arr):
+    """
+    Write a function count_nums which takes an array of integers and returns
+    the number of elements which has a sum of digits > 0.
+    If a number is negative, then its first signed digit will be negative:
+    e.g. -123 has signed digits -1, 2, and 3.
+    >>> count_nums([]) == 0
+    >>> count_nums([-1, 11, -11]) == 1
+    >>> count_nums([1, 1, 2]) == 3
+    """
+
+
+----------
+Canonical solution: 
+    def digits_sum(n):
+        neg = 1
+        if n < 0: n, neg = -1 * n, -1 
+        n = [int(i) for i in str(n)]
+        n[0] = n[0] * neg
+        return sum(n)
+    return len(list(filter(lambda x: x > 0, [digits_sum(i) for i in arr])))
+
+
+----------
+Implementation 0: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+
+def count_nums(arr):
+    """
+    Write a function count_nums which takes an array of integers and returns
+    the number of elements which has a sum of digits > 0.
+    If a number is negative, then its first signed digit will be negative:
+    e.g. -123 has signed digits -1, 2, and 3.
+    >>> count_nums([]) == 0
+    >>> count_nums([-1, 11, -11]) == 1
+    >>> count_nums([1, 1, 2]) == 3
+    """
+
+
+def count_nums(arr):
+    """
+    Write a function count_nums which takes an array of integers and returns
+    the number of elements which has a sum of digits > 0.
+    If a number is negative, then its first signed digit will be negative:
+    e.g. -123 has signed digits -1, 2, and 3.
+    >>> count_nums([]) == 0
+    >>> count_nums([-1, 11, -11]) == 1
+    >>> count_nums([1, 1, 2]) == 3
+    """
+    def sum_of_digits(n):
+        return sum(int(digit) for digit in str(abs(n)))
+
+    return sum(1 for num in arr if sum_of_digits(num) > 0)
+
+# Unit test
+assert count_nums([]) == 0
+
+
+----------
+Implementation 1: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def count_nums(arr):
+    """
+    Write a function count_nums which takes an array of integers and returns
+    the number of elements which has a sum of digits > 0.
+    If a number is negative, then its first signed digit will be negative:
+    e.g. -123 has signed digits -1, 2, and 3.
+    >>> count_nums([]) == 0
+    >>> count_nums([-1, 11, -11]) == 1
+    >>> count_nums([1, 1, 2]) == 3
+    """
+    def sum_of_digits(n):
+        return sum(int(digit) for digit in str(abs(n)))
+
+    return sum(1 for num in arr if sum_of_digits(num) > 0)
+
+# Unit test
+assert count_nums([]) == 0
+assert count_nums([-1, 11, -11]) == 1
+assert count_nums([1, 1, 2]) == 3
+
+----------
+Implementation 2: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def count_nums(arr):
+    """
+    Write a function count_nums which takes an array of integers and returns
+    the number of elements which has a sum of digits > 0.
+    If a number is negative, then its first signed digit will be negative:
+    e.g. -123 has signed digits -1, 2, and 3.
+    >>> count_nums([]) == 0
+    >>> count_nums([-1, 11, -11]) == 1
+    >>> count_nums([1, 1, 2]) == 3
+    """
+    def sum_of_digits(n):
+        if n < 0:
+            n = -n
+            return -sum(int(digit) for digit in str(n))
+        else:
+            return sum(int(digit) for digit in str(n))
+
+    return sum(1 for num in arr if sum_of_digits(num) > 0)
+
+# Unit test
+assert count_nums([]) == 0
+assert count_nums([-1, 11, -11]) == 1
+assert count_nums([1, 1, 2]) == 3
+
+----------
+--------------------
+------------------------------
+Debug iter: 10
+
+Prompt: 
+
+def get_closest_vowel(word):
+    """You are given a word. Your task is to find the closest vowel that stands between 
+    two consonants from the right side of the word (case sensitive).
+    
+    Vowels in the beginning and ending doesn't count. Return empty string if you didn't
+    find any vowel met the above condition. 
+
+    You may assume that the given string contains English letter only.
+
+    Example:
+    get_closest_vowel("yogurt") ==> "u"
+    get_closest_vowel("FULL") ==> "U"
+    get_closest_vowel("quick") ==> ""
+    get_closest_vowel("ab") ==> ""
+    """
+
+
+----------
+Canonical solution: 
+    if len(word) < 3:
+        return ""
+
+    vowels = {"a", "e", "i", "o", "u", "A", "E", 'O', 'U', 'I'}
+    for i in range(len(word)-2, 0, -1):
+        if word[i] in vowels:
+            if (word[i+1] not in vowels) and (word[i-1] not in vowels):
+                return word[i]
+    return ""
+
+
+----------
+Implementation 0: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+
+def get_closest_vowel(word):
+    """You are given a word. Your task is to find the closest vowel that stands between 
+    two consonants from the right side of the word (case sensitive).
+    
+    Vowels in the beginning and ending doesn't count. Return empty string if you didn't
+    find any vowel met the above condition. 
+
+    You may assume that the given string contains English letter only.
+
+    Example:
+    get_closest_vowel("yogurt") ==> "u"
+    get_closest_vowel("FULL") ==> "U"
+    get_closest_vowel("quick") ==> ""
+    get_closest_vowel("ab") ==> ""
+    """
+
+
+def get_closest_vowel(word):
+    """You are given a word. Your task is to find the closest vowel that stands between 
+    two consonants from the right side of the word (case sensitive).
+    
+    Vowels in the beginning and ending doesn't count. Return empty string if you didn't
+    find any vowel met the above condition. 
+
+    You may assume that the given string contains English letter only.
+
+    Example:
+    get_closest_vowel("yogurt") ==> "u"
+    get_closest_vowel("FULL") ==> "U"
+    get_closest_vowel("quick") ==> ""
+    get_closest_vowel("ab") ==> ""
+    """
+    vowels = "aeiouAEIOU"
+    # Reverse the word to start checking from the right side
+    reversed_word = word[::-1]
+    
+    # Find the first consonant from the right
+    first_consonant_index = None
+    for i, char in enumerate(reversed_word):
+        if char not in vowels:
+            first_consonant_index = i
+            break
+    
+    # If there is no consonant or only one consonant, return an empty string
+    if first_consonant_index is None or first_consonant_index == 0:
+        return ""
+    
+    # Find the closest vowel between two consonants
+    for i in range(first_consonant_index - 1, -1, -1):
+        if reversed_word[i] in vowels:
+            # Check if the vowel is between two consonants
+            if i > 0 and reversed_word[i - 1] not in vowels:
+                return reversed_word[i]
+            else:
+                break
+    
+    return ""
+
+# Unit test
+assert get_closest_vowel('yogurt') == 'u'
+
+
+----------
+Implementation 1: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def get_closest_vowel(word):
+    """You are given a word. Your task is to find the closest vowel that stands between 
+    two consonants from the right side of the word (case sensitive).
+    
+    Vowels in the beginning and ending doesn't count. Return empty string if you didn't
+    find any vowel met the above condition. 
+
+    You may assume that the given string contains English letter only.
+
+    Example:
+    get_closest_vowel("yogurt") ==> "u"
+    get_closest_vowel("FULL") ==> "U"
+    get_closest_vowel("quick") ==> ""
+    get_closest_vowel("ab") ==> ""
+    """
+    vowels = "aeiouAEIOU"
+    reversed_word = word[::-1]
+    first_consonant_index = None
+    for i, char in enumerate(reversed_word):
+        if char not in vowels:
+            first_consonant_index = i
+            break
+    if first_consonant_index is None or first_consonant_index == 0:
+        return ""
+
+    for i in range(first_consonant_index - 1, -1, -1):
+        if reversed_word[i] in vowels:
+            if i > 0 and reversed_word[i - 1] not in vowels:
+                return reversed_word[i]
+            else:
+                break
+
+    return ""
+
+----------
+Implementation 2: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def get_closest_vowel(word):
+    """You are given a word. Your task is to find the closest vowel that stands between 
+    two consonants from the right side of the word (case sensitive).
+    
+    Vowels in the beginning and ending doesn't count. Return empty string if you didn't
+    find any vowel met the above condition. 
+
+    You may assume that the given string contains English letter only.
+
+    Example:
+    get_closest_vowel("yogurt") ==> "u"
+    get_closest_vowel("FULL") ==> "U"
+    get_closest_vowel("quick") ==> ""
+    get_closest_vowel("ab") ==> ""
+    """
+    vowels = "aeiouAEIOU"
+    reversed_word = word[::-1]
+    first_consonant_index = None
+    for i, char in enumerate(reversed_word):
+        if char not in vowels:
+            first_consonant_index = i
+            break
+    if first_consonant_index is None:
+        return ""
+
+    for i in range(first_consonant_index - 1, -1, -1):
+        if reversed_word[i] in vowels:
+            if i > 0 and reversed_word[i - 1] not in vowels:
+                return reversed_word[i]
+            else:
+                break
+
+    return ""
+
+----------
+Implementation 3: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def get_closest_vowel(word):
+    """You are given a word. Your task is to find the closest vowel that stands between 
+    two consonants from the right side of the word (case sensitive).
+    
+    Vowels in the beginning and ending doesn't count. Return empty string if you didn't
+    find any vowel met the above condition. 
+
+    You may assume that the given string contains English letter only.
+
+    Example:
+    get_closest_vowel("yogurt") ==> "u"
+    get_closest_vowel("FULL") ==> "U"
+    get_closest_vowel("quick") ==> ""
+    get_closest_vowel("ab") ==> ""
+    """
+    vowels = "aeiouAEIOU"
+    reversed_word = word[::-1]
+    first_consonant_index = None
+    for i, char in enumerate(reversed_word):
+        if char not in vowels:
+            first_consonant_index = i
+            break
+    if first_consonant_index is None:
+        return ""
+
+    for i in range(first_consonant_index - 1, -1, -1):
+        if reversed_word[i] in vowels:
+            if i > 0 and reversed_word[i - 1] not in vowels:
+                return reversed_word[i]
+            else:
+                break
+
+    return ""
+
+----------
+Implementation 4: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def get_closest_vowel(word):
+    """You are given a word. Your task is to find the closest vowel that stands between 
+    two consonants from the right side of the word (case sensitive).
+    
+    Vowels in the beginning and ending doesn't count. Return empty string if you didn't
+    find any vowel met the above condition. 
+
+    You may assume that the given string contains English letter only.
+
+    Example:
+    get_closest_vowel("yogurt") ==> "u"
+    get_closest_vowel("FULL") ==> "U"
+    get_closest_vowel("quick") ==> ""
+    get_closest_vowel("ab") ==> ""
+    """
+    vowels = "aeiouAEIOU"
+    reversed_word = word[::-1]
+    first_consonant_index = None
+    for i, char in enumerate(reversed_word):
+        if char not in vowels:
+            first_consonant_index = i
+            break
+    if first_consonant_index is None:
+        return ""
+
+    for i in range(first_consonant_index - 1, -1, -1):
+        if reversed_word[i] in vowels:
+            if i > 0 and reversed_word[i - 1] not in vowels:
+                return reversed_word[i]
+            else:
+                break
+
+    return ""
+
+----------
+Implementation 5: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def get_closest_vowel(word):
+    """You are given a word. Your task is to find the closest vowel that stands between 
+    two consonants from the right side of the word (case sensitive).
+    
+    Vowels in the beginning and ending doesn't count. Return empty string if you didn't
+    find any vowel met the above condition. 
+
+    You may assume that the given string contains English letter only.
+
+    Example:
+    get_closest_vowel("yogurt") ==> "u"
+    get_closest_vowel("FULL") ==> "U"
+    get_closest_vowel("quick") ==> ""
+    get_closest_vowel("ab") ==> ""
+    """
+    vowels = "aeiouAEIOU"
+    reversed_word = word[::-1]
+    first_consonant_index = None
+    for i, char in enumerate(reversed_word):
+        if char not in vowels:
+            first_consonant_index = i
+            break
+    if first_consonant_index is None:
+        return ""
+
+    for i in range(first_consonant_index - 1, -1, -1):
+        if reversed_word[i] in vowels:
+            if i > 0 and reversed_word[i - 1] not in vowels:
+                return reversed_word[i]
+            else:
+                break
+
+    return ""
+
+----------
+Implementation 6: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def get_closest_vowel(word):
+    """You are given a word. Your task is to find the closest vowel that stands between 
+    two consonants from the right side of the word (case sensitive).
+    
+    Vowels in the beginning and ending doesn't count. Return empty string if you didn't
+    find any vowel met the above condition. 
+
+    You may assume that the given string contains English letter only.
+
+    Example:
+    get_closest_vowel("yogurt") ==> "u"
+    get_closest_vowel("FULL") ==> "U"
+    get_closest_vowel("quick") ==> ""
+    get_closest_vowel("ab") ==> ""
+    """
+    vowels = "aeiouAEIOU"
+    reversed_word = word[::-1]
+    first_consonant_index = None
+    for i, char in enumerate(reversed_word):
+        if char not in vowels:
+            first_consonant_index = i
+            break
+    if first_consonant_index is None:
+        return ""
+
+    for i in range(first_consonant_index - 1, -1, -1):
+        if reversed_word[i] in vowels:
+            if i > 0 and reversed_word[i - 1] not in vowels:
+                return reversed_word[i]
+            else:
+                break
+
+    return ""
+
+----------
+Implementation 7: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def get_closest_vowel(word):
+    """You are given a word. Your task is to find the closest vowel that stands between 
+    two consonants from the right side of the word (case sensitive).
+    
+    Vowels in the beginning and ending doesn't count. Return empty string if you didn't
+    find any vowel met the above condition. 
+
+    You may assume that the given string contains English letter only.
+
+    Example:
+    get_closest_vowel("yogurt") ==> "u"
+    get_closest_vowel("FULL") ==> "U"
+    get_closest_vowel("quick") ==> ""
+    get_closest_vowel("ab") ==> ""
+    """
+    vowels = "aeiouAEIOU"
+    reversed_word = word[::-1]
+    first_consonant_index = None
+    for i, char in enumerate(reversed_word):
+        if char not in vowels:
+            first_consonant_index = i
+            break
+    if first_consonant_index is None:
+        return ""
+
+    for i in range(first_consonant_index - 1, -1, -1):
+        if reversed_word[i] in vowels:
+            if i > 0 and reversed_word[i - 1] not in vowels:
+                return reversed_word[i]
+            else:
+                break
+
+    return ""
+
+----------
+Implementation 8: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def get_closest_vowel(word):
+    """You are given a word. Your task is to find the closest vowel that stands between 
+    two consonants from the right side of the word (case sensitive).
+    
+    Vowels in the beginning and ending doesn't count. Return empty string if you didn't
+    find any vowel met the above condition. 
+
+    You may assume that the given string contains English letter only.
+
+    Example:
+    get_closest_vowel("yogurt") ==> "u"
+    get_closest_vowel("FULL") ==> "U"
+    get_closest_vowel("quick") ==> ""
+    get_closest_vowel("ab") ==> ""
+    """
+    vowels = "aeiouAEIOU"
+    reversed_word = word[::-1]
+    first_consonant_index = None
+    for i, char in enumerate(reversed_word):
+        if char not in vowels:
+            first_consonant_index = i
+            break
+    if first_consonant_index is None:
+        return ""
+
+    for i in range(first_consonant_index - 1, -1, -1):
+        if reversed_word[i] in vowels:
+            if i > 0 and reversed_word[i - 1] not in vowels:
+                return reversed_word[i]
+            else:
+                break
+
+    return ""
+
+----------
+Implementation 9: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def get_closest_vowel(word):
+    """You are given a word. Your task is to find the closest vowel that stands between 
+    two consonants from the right side of the word (case sensitive).
+    
+    Vowels in the beginning and ending doesn't count. Return empty string if you didn't
+    find any vowel met the above condition. 
+
+    You may assume that the given string contains English letter only.
+
+    Example:
+    get_closest_vowel("yogurt") ==> "u"
+    get_closest_vowel("FULL") ==> "U"
+    get_closest_vowel("quick") ==> ""
+    get_closest_vowel("ab") ==> ""
+    """
+    vowels = "aeiouAEIOU"
+    reversed_word = word[::-1]
+    first_consonant_index = None
+    for i, char in enumerate(reversed_word):
+        if char not in vowels:
+            first_consonant_index = i
+            break
+    if first_consonant_index is None:
+        return ""
+
+    for i in range(first_consonant_index - 1, -1, -1):
+        if reversed_word[i] in vowels:
+            if i > 0 and reversed_word[i - 1] not in vowels:
+                return reversed_word[i]
+            else:
+                break
+
+    return ""
+
+----------
+Implementation 10: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def get_closest_vowel(word):
+    """You are given a word. Your task is to find the closest vowel that stands between 
+    two consonants from the right side of the word (case sensitive).
+    
+    Vowels in the beginning and ending doesn't count. Return empty string if you didn't
+    find any vowel met the above condition. 
+
+    You may assume that the given string contains English letter only.
+
+    Example:
+    get_closest_vowel("yogurt") ==> "u"
+    get_closest_vowel("FULL") ==> "U"
+    get_closest_vowel("quick") ==> ""
+    get_closest_vowel("ab") ==> ""
+    """
+    vowels = "aeiouAEIOU"
+    reversed_word = word[::-1]
+    first_consonant_index = None
+    for i, char in enumerate(reversed_word):
+        if char not in vowels:
+            first_consonant_index = i
+            break
+    if first_consonant_index is None:
+        return ""
+
+    for i in range(first_consonant_index - 1, -1, -1):
+        if reversed_word[i] in vowels:
+            if i > 0 and reversed_word[i - 1] not in vowels:
+                return reversed_word[i]
+            else:
+                break
+
+    return ""
+
+----------
+--------------------
+------------------------------
+Debug iter: 1
+
+Prompt: 
+
+def maximum(arr, k):
+    """
+    Given an array arr of integers and a positive integer k, return a sorted list 
+    of length k with the maximum k numbers in arr.
+
+    Example 1:
+
+        Input: arr = [-3, -4, 5], k = 3
+        Output: [-4, -3, 5]
+
+    Example 2:
+
+        Input: arr = [4, -4, 4], k = 2
+        Output: [4, 4]
+
+    Example 3:
+
+        Input: arr = [-3, 2, 1, 2, -1, -2, 1], k = 1
+        Output: [2]
+
+    Note:
+        1. The length of the array will be in the range of [1, 1000].
+        2. The elements in the array will be in the range of [-1000, 1000].
+        3. 0 <= k <= len(arr)
+    """
+
+
+----------
+Canonical solution: 
+    if k == 0:
+        return []
+    arr.sort()
+    ans = arr[-k:]
+    return ans
+
+
+----------
+Implementation 0: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+
+def maximum(arr, k):
+    """
+    Given an array arr of integers and a positive integer k, return a sorted list 
+    of length k with the maximum k numbers in arr.
+
+    Example 1:
+
+        Input: arr = [-3, -4, 5], k = 3
+        Output: [-4, -3, 5]
+
+    Example 2:
+
+        Input: arr = [4, -4, 4], k = 2
+        Output: [4, 4]
+
+    Example 3:
+
+        Input: arr = [-3, 2, 1, 2, -1, -2, 1], k = 1
+        Output: [2]
+
+    Note:
+        1. The length of the array will be in the range of [1, 1000].
+        2. The elements in the array will be in the range of [-1000, 1000].
+        3. 0 <= k <= len(arr)
+    """
+
+
+def maximum(arr, k):
+    """
+    Given an array arr of integers and a positive integer k, return a sorted list 
+    of length k with the maximum k numbers in arr.
+
+    Example 1:
+
+        Input: arr = [-3, -4, 5], k = 3
+        Output: [-4, -3, 5]
+
+    Example 2:
+
+        Input: arr = [4, -4, 4], k = 2
+        Output: [4, 4]
+
+    Example 3:
+
+        Input: arr = [-3, 2, 1, 2, -1, -2, 1], k = 1
+        Output: [2]
+
+    Note:
+        1. The length of the array will be in the range of [1, 1000].
+        2. The elements in the array will be in the range of [-1000, 1000].
+        3. 0 <= k <= len(arr)
+    """
+    # Sort the array in descending order and then take the first k elements
+    return sorted(arr, reverse=True)[:k]
+
+# Unit test
+assert maximum([-3, -4, 5], 3) == [-4, -3, 5]
+
+
+----------
+Implementation 1: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def maximum(arr, k):
+    """
+    Given an array arr of integers and a positive integer k, return a sorted list 
+    of length k with the maximum k numbers in arr.
+
+    Example 1:
+
+        Input: arr = [-3, -4, 5], k = 3
+        Output: [-4, -3, 5]
+
+    Example 2:
+
+        Input: arr = [4, -4, 4], k = 2
+        Output: [4, 4]
+
+    Example 3:
+
+        Input: arr = [-3, 2, 1, 2, -1, -2, 1], k = 1
+        Output: [2]
+
+    Note:
+        1. The length of the array will be in the range of [1, 1000].
+        2. The elements in the array will be in the range of [-1000, 1000].
+        3. 0 <= k <= len(arr)
+    """
+    return sorted(arr)[-k:]
+
+----------
+--------------------
+------------------------------
+Debug iter: 2
+
+Prompt: 
+
+def tri(n):
+    """Everyone knows Fibonacci sequence, it was studied deeply by mathematicians in 
+    the last couple centuries. However, what people don't know is Tribonacci sequence.
+    Tribonacci sequence is defined by the recurrence:
+    tri(1) = 3
+    tri(n) = 1 + n / 2, if n is even.
+    tri(n) =  tri(n - 1) + tri(n - 2) + tri(n + 1), if n is odd.
+    For example:
+    tri(2) = 1 + (2 / 2) = 2
+    tri(4) = 3
+    tri(3) = tri(2) + tri(1) + tri(4)
+           = 2 + 3 + 3 = 8 
+    You are given a non-negative integer number n, you have to a return a list of the 
+    first n + 1 numbers of the Tribonacci sequence.
+    Examples:
+    tri(3) = [1, 3, 2, 8]
+    """
+
+
+----------
+Canonical solution: 
+    if n == 0:
+        return [1]
+    my_tri = [1, 3]
+    for i in range(2, n + 1):
+        if i % 2 == 0:
+            my_tri.append(i / 2 + 1)
+        else:
+            my_tri.append(my_tri[i - 1] + my_tri[i - 2] + (i + 3) / 2)
+    return my_tri
+
+
+----------
+Implementation 0: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+
+def tri(n):
+    """Everyone knows Fibonacci sequence, it was studied deeply by mathematicians in 
+    the last couple centuries. However, what people don't know is Tribonacci sequence.
+    Tribonacci sequence is defined by the recurrence:
+    tri(1) = 3
+    tri(n) = 1 + n / 2, if n is even.
+    tri(n) =  tri(n - 1) + tri(n - 2) + tri(n + 1), if n is odd.
+    For example:
+    tri(2) = 1 + (2 / 2) = 2
+    tri(4) = 3
+    tri(3) = tri(2) + tri(1) + tri(4)
+           = 2 + 3 + 3 = 8 
+    You are given a non-negative integer number n, you have to a return a list of the 
+    first n + 1 numbers of the Tribonacci sequence.
+    Examples:
+    tri(3) = [1, 3, 2, 8]
+    """
+
+
+def tri(n):
+    """Return a list of the first n + 1 numbers of the Tribonacci sequence."""
+    # Base cases
+    if n == 0:
+        return [1]
+    elif n == 1:
+        return [1, 3]
+    elif n == 2:
+        return [1, 3, 2]
+    
+    # Initialize the list with base cases
+    sequence = [1, 3, 2]
+    
+    # Calculate the rest of the sequence
+    for i in range(3, n + 1):
+        if i % 2 == 0:
+            sequence.append(1 + i // 2)
+        else:
+            sequence.append(sequence[i - 1] + sequence[i - 2] + sequence[i - 3])
+    
+    return sequence
+
+# Unit test
+assert tri(3) == [1, 3, 2, 8]
+
+
+----------
+Implementation 1: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def tri(n):
+    """Return a list of the first n + 1 numbers of the Tribonacci sequence."""
+    # Base cases
+    if n == 0:
+        return [1]
+    elif n == 1:
+        return [1, 3]
+    elif n == 2:
+        return [1, 3, 2]
+    
+    # Initialize the list with base cases
+    sequence = [1, 3, 2]
+    
+    # Calculate the rest of the sequence
+    for i in range(3, n + 1):
+        if i % 2 == 0:
+            sequence.append(1 + i // 2)
+        else:
+            sequence.append(sequence[i - 1] + sequence[i - 2] + sequence[i - 3])
+    
+    return sequence
+
+----------
+Implementation 2: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def tri(n):
+    """Return a list of the first n + 1 numbers of the Tribonacci sequence."""
+    # Base cases
+    if n == 0:
+        return [1]
+    elif n == 1:
+        return [1, 3]
+    elif n == 2:
+        return [1, 3, 2]
+    
+    # Initialize the list with base cases
+    sequence = [1, 3, 2]
+    
+    # Calculate the rest of the sequence
+    for i in range(3, n + 1):
+        if i % 2 == 0:
+            sequence.append(1 + i // 2)
+        else:
+            sequence.append(sequence[i - 1] + sequence[i - 2] + sequence[i - 3] + sequence[i - 4])
+    
+    return sequence
+
+----------
+--------------------
+------------------------------
+Debug iter: 10
+
+Prompt: 
+
+def is_nested(string):
+    '''
+    Create a function that takes a string as input which contains only square brackets.
+    The function should return True if and only if there is a valid subsequence of brackets 
+    where at least one bracket in the subsequence is nested.
+
+    is_nested('[[]]') ➞ True
+    is_nested('[]]]]]]][[[[[]') ➞ False
+    is_nested('[][]') ➞ False
+    is_nested('[]') ➞ False
+    is_nested('[[][]]') ➞ True
+    is_nested('[[]][[') ➞ True
+    '''
+
+
+----------
+Canonical solution: 
+    opening_bracket_index = []
+    closing_bracket_index = []
+    for i in range(len(string)):
+        if string[i] == '[':
+            opening_bracket_index.append(i)
+        else:
+            closing_bracket_index.append(i)
+    closing_bracket_index.reverse()
+    cnt = 0
+    i = 0
+    l = len(closing_bracket_index)
+    for idx in opening_bracket_index:
+        if i < l and idx < closing_bracket_index[i]:
+            cnt += 1
+            i += 1
+    return cnt >= 2
+
+    
+
+
+----------
+Implementation 0: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+
+def is_nested(string):
+    '''
+    Create a function that takes a string as input which contains only square brackets.
+    The function should return True if and only if there is a valid subsequence of brackets 
+    where at least one bracket in the subsequence is nested.
+
+    is_nested('[[]]') ➞ True
+    is_nested('[]]]]]]][[[[[]') ➞ False
+    is_nested('[][]') ➞ False
+    is_nested('[]') ➞ False
+    is_nested('[[][]]') ➞ True
+    is_nested('[[]][[') ➞ True
+    '''
+
+
+def is_nested(string):
+    '''
+    Create a function that takes a string as input which contains only square brackets.
+    The function should return True if and only if there is a valid subsequence of brackets 
+    where at least one bracket in the subsequence is nested.
+
+    is_nested('[[]]') ➞ True
+    is_nested('[]]]]]]][[[[[]') ➞ False
+    is_nested('[][]') ➞ False
+    is_nested('[]') ➞ False
+    is_nested('[[][]]') ➞ True
+    is_nested('[[]][[') ➞ True
+    '''
+    # Initialize a counter for the brackets
+    count = 0
+    # Initialize a variable to check if there is a nested bracket
+    nested = False
+
+    # Iterate over each character in the string
+    for char in string:
+        # If it's an opening bracket, increment the counter
+        if char == '[':
+            count += 1
+        # If it's a closing bracket, decrement the counter
+        elif char == ']':
+            count -= 1
+            # If the count is greater than 0 after decrement, it means there is a nested bracket
+            if count > 0:
+                nested = True
+        # If the count becomes negative, it's not a valid sequence
+        if count < 0:
+            return False
+
+    # Return True if there is a nested bracket and the count is 0 (valid sequence)
+    return nested and count == 0
+
+# Unit test
+assert is_nested('[[]]') == True
+
+
+----------
+Implementation 1: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def is_nested(string):
+    """
+    Create a function that takes a string as input which contains only square brackets.
+    The function should return True if and only if there is a valid subsequence of brackets 
+    where at least one bracket in the subsequence is nested.
+
+    is_nested('[[]]') ➞ True
+    is_nested('[]]]]]]][[[[[]') ➞ False
+    is_nested('[][]') ➞ False
+    is_nested('[]') ➞ False
+    is_nested('[[][]]') ➞ True
+    is_nested('[[]][[') ➞ True
+    """
+    count = 0
+    nested = False
+
+    for char in string:
+        if char == '[':
+            count += 1
+        elif char == ']':
+            count -= 1
+            if count > 0:
+                nested = True
+        if count < 0:
+            return False
+
+    return nested and count == 0
+
+# Unit test
+assert is_nested('[[]]') == True
+assert is_nested('[]]]]]]][[[[[]') == False
+assert is_nested('[][]') == False
+assert is_nested('[]') == False
+assert is_nested('[[][]]') == True
+assert is_nested('[[]][[') == True
+
+----------
+Implementation 2: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def is_nested(string):
+    """
+    Create a function that takes a string as input which contains only square brackets.
+    The function should return True if and only if there is a valid subsequence of brackets 
+    where at least one bracket in the subsequence is nested.
+
+    is_nested('[[]]') ➞ True
+    is_nested('[]]]]]]][[[[[]') ➞ False
+    is_nested('[][]') ➞ False
+    is_nested('[]') ➞ False
+    is_nested('[[][]]') ➞ True
+    is_nested('[[]][[') ➞ True
+    """
+    count = 0
+    nested = False
+
+    for char in string:
+        if char == '[':
+            count += 1
+        elif char == ']':
+            count -= 1
+            if count > 0:
+                nested = True
+        if count < 0:
+            return False
+
+    return count == 0
+
+# Unit test
+assert is_nested('[[]]') == True
+assert is_nested('[]]]]]]][[[[[]') == False
+assert is_nested('[][]') == False
+assert is_nested('[]') == False
+assert is_nested('[[][]]') == True
+assert is_nested('[[]][[') == False
+
+----------
+Implementation 3: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def is_nested(string):
+    """
+    Create a function that takes a string as input which contains only square brackets.
+    The function should return True if and only if there is a valid subsequence of brackets 
+    where at least one bracket in the subsequence is nested.
+
+    is_nested('[[]]') ➞ True
+    is_nested('[]]]]]]][[[[[]') ➞ False
+    is_nested('[][]') ➞ False
+    is_nested('[]') ➞ False
+    is_nested('[[][]]') ➞ True
+    is_nested('[[]][[') ➞ True
+    """
+    count = 0
+    nested = False
+
+    for char in string:
+        if char == '[':
+            count += 1
+        elif char == ']':
+            count -= 1
+            if count > 0:
+                nested = True
+
+    if count < 0 or count > 0:
+        return False
+
+    return nested
+
+# Unit test
+assert is_nested('[[]]') == True
+assert is_nested('[]]]]]]][[[[[]') == False
+assert is_nested('[][]') == False
+assert is_nested('[]') == False
+assert is_nested('[[][]]') == True
+assert is_nested('[[]][[') == True
+
+----------
+Implementation 4: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def is_nested(string):
+    """
+    Create a function that takes a string as input which contains only square brackets.
+    The function should return True if and only if there is a valid subsequence of brackets 
+    where at least one bracket in the subsequence is nested.
+
+    is_nested('[[]]') ➞ True
+    is_nested('[]]]]]]][[[[[]') ➞ False
+    is_nested('[][]') ➞ False
+    is_nested('[]') ➞ False
+    is_nested('[[][]]') ➞ True
+    is_nested('[[]][[') ➞ True
+    """
+    count = 0
+    nested = False
+
+    for char in string:
+        if char == '[':
+            count += 1
+        elif char == ']':
+            count -= 1
+
+    if count > 0:
+        nested = True
+
+    if count != 0:
+        return False
+
+    return nested
+
+# Unit test
+assert is_nested('[[]]') == True
+assert is_nested('[]]]]]]][[[[[]') == False
+assert is_nested('[][]') == False
+assert is_nested('[]') == False
+assert is_nested('[[][]]') == True
+assert is_nested('[[]][[') == True
+
+----------
+Implementation 5: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def is_nested(string):
+    """
+    Create a function that takes a string as input which contains only square brackets.
+    The function should return True if and only if there is a valid subsequence of brackets 
+    where at least one bracket in the subsequence is nested.
+
+    is_nested('[[]]') ➞ True
+    is_nested('[]]]]]]][[[[[]') ➞ False
+    is_nested('[][]') ➞ False
+    is_nested('[]') ➞ False
+    is_nested('[[][]]') ➞ True
+    is_nested('[[]][[') ➞ True
+    """
+    count = 0
+    nested = False
+
+    for char in string:
+        if char == '[':
+            count += 1
+        elif char == ']':
+            count -= 1
+
+    if count == 0:
+        nested = True
+
+    if count != 0:
+        return False
+
+    return nested
+
+# Unit test
+assert is_nested('[[]]') == True
+assert is_nested('[]]]]]]][[[[[]') == False
+assert is_nested('[][]') == False
+assert is_nested('[]') == False
+assert is_nested('[[][]]') == True
+assert is_nested('[[]][[') == True
+
+----------
+Implementation 6: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def is_nested(string):
+    """
+    Create a function that takes a string as input which contains only square brackets.
+    The function should return True if and only if there is a valid subsequence of brackets 
+    where at least one bracket in the subsequence is nested.
+
+    is_nested('[[]]') ➞ True
+    is_nested('[]]]]]]][[[[[]') ➞ False
+    is_nested('[][]') ➞ False
+    is_nested('[]') ➞ False
+    is_nested('[[][]]') ➞ True
+    is_nested('[[]][[') ➞ True
+    """
+    count = 0
+    nested = False
+
+    for char in string:
+        if char == '[':
+            count += 1
+        elif char == ']':
+            count -= 1
+
+    if count == 0:
+        nested = True
+
+    return nested
+
+# Unit test
+assert is_nested('[[]]') == True
+assert is_nested('[]]]]]]][[[[[]') == False
+assert is_nested('[][]') == False
+assert is_nested('[]') == False
+assert is_nested('[[][]]') == True
+assert is_nested('[[]][[') == True
+
+----------
+Implementation 7: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def is_nested(string):
+    """
+    Create a function that takes a string as input which contains only square brackets.
+    The function should return True if and only if there is a valid subsequence of brackets 
+    where at least one bracket in the subsequence is nested.
+
+    is_nested('[[]]') ➞ True
+    is_nested('[]]]]]]][[[[[]') ➞ False
+    is_nested('[][]') ➞ False
+    is_nested('[]') ➞ False
+    is_nested('[[][]]') ➞ True
+    is_nested('[[]][[') ➞ True
+    """
+    count = 0
+    nested = False
+
+    for char in string:
+        if char == '[':
+            count += 1
+        elif char == ']':
+            count -= 1
+
+    if count == 0:
+        nested = True
+
+    return nested
+
+# Unit test
+assert is_nested('[[]]') == True
+assert is_nested('[]]]]]]][[[[[]') == False
+assert is_nested('[][]') == False
+assert is_nested('[]') == False
+assert is_nested('[[][]]') == True
+assert is_nested('[[]][[') == True
+
+----------
+Implementation 8: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def is_nested(string):
+    """
+    Create a function that takes a string as input which contains only square brackets.
+    The function should return True if and only if there is a valid subsequence of brackets 
+    where at least one bracket in the subsequence is nested.
+
+    is_nested('[[]]') ➞ True
+    is_nested('[]]]]]]][[[[[]') ➞ False
+    is_nested('[][]') ➞ False
+    is_nested('[]') ➞ False
+    is_nested('[[][]]') ➞ True
+    is_nested('[[]][[') ➞ True
+    """
+    count = 0
+    nested = False
+
+    for char in string:
+        if char == '[':
+            count += 1
+        elif char == ']':
+            count -= 1
+        if count < 0:
+            return False
+
+    if count == 0:
+        nested = True
+
+    return nested
+
+# Unit test
+assert is_nested('[[]]') == True
+assert is_nested('[]]]]]]][[[[[]') == False
+assert is_nested('[][]') == False
+assert is_nested('[]') == False
+assert is_nested('[[][]]') == True
+assert is_nested('[[]][[') == True
+
+----------
+Implementation 9: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def is_nested(string):
+    """
+    Create a function that takes a string as input which contains only square brackets.
+    The function should return True if and only if there is a valid subsequence of brackets 
+    where at least one bracket in the subsequence is nested.
+
+    is_nested('[[]]') ➞ True
+    is_nested('[]]]]]]][[[[[]') ➞ False
+    is_nested('[][]') ➞ False
+    is_nested('[]') ➞ False
+    is_nested('[[][]]') ➞ True
+    is_nested('[[]][[') ➞ True
+    """
+    count = 0
+    nested = False
+
+    for char in string:
+        if char == '[':
+            count += 1
+        elif char == ']':
+            count -= 1
+        if count < 0:
+            return False
+
+    if count == 0:
+        nested = True
+
+    return nested
+
+# Unit test
+assert is_nested('[[]]') == True
+assert is_nested('[]]]]]]][[[[[]') == False
+assert is_nested('[][]') == False
+assert is_nested('[]') == False
+assert is_nested('[[][]]') == True
+assert is_nested('[[]][[') == True
+
+----------
+Implementation 10: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def is_nested(string):
+    """
+    Create a function that takes a string as input which contains only square brackets.
+    The function should return True if and only if there is a valid subsequence of brackets 
+    where at least one bracket in the subsequence is nested.
+
+    is_nested('[[]]') ➞ True
+    is_nested('[]]]]]]][[[[[]') ➞ False
+    is_nested('[][]') ➞ False
+    is_nested('[]') ➞ False
+    is_nested('[[][]]') ➞ True
+    is_nested('[[]][[') ➞ True
+    """
+    count = 0
+    nested = False
+
+    for char in string:
+        if char == '[':
+            count += 1
+        elif char == ']':
+            count -= 1
+        if count < 0:
+            return False
+
+    if count == 0:
+        nested = True
+
+    return nested
+
+# Unit test
+assert is_nested('[[]]') == True
+assert is_nested('[]]]]]]][[[[[]') == False
+assert is_nested('[][]') == False
+assert is_nested('[]') == False
+assert is_nested('[[][]]') == True
+assert is_nested('[[]][[') == True
+
+----------
+--------------------
+------------------------------
+Debug iter: 10
+
+Prompt: 
+
+def check_if_last_char_is_a_letter(txt):
+    '''
+    Create a function that returns True if the last character
+    of a given string is an alphabetical character and is not
+    a part of a word, and False otherwise.
+    Note: "word" is a group of characters separated by space.
+
+    Examples:
+    check_if_last_char_is_a_letter("apple pie") ➞ False
+    check_if_last_char_is_a_letter("apple pi e") ➞ True
+    check_if_last_char_is_a_letter("apple pi e ") ➞ False
+    check_if_last_char_is_a_letter("") ➞ False 
+    '''
+
+
+----------
+Canonical solution: 
+ 
+    check = txt.split(' ')[-1]
+    return True if len(check) == 1 and (97 <= ord(check.lower()) <= 122) else False
+
+
+----------
+Implementation 0: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+
+def check_if_last_char_is_a_letter(txt):
+    '''
+    Create a function that returns True if the last character
+    of a given string is an alphabetical character and is not
+    a part of a word, and False otherwise.
+    Note: "word" is a group of characters separated by space.
+
+    Examples:
+    check_if_last_char_is_a_letter("apple pie") ➞ False
+    check_if_last_char_is_a_letter("apple pi e") ➞ True
+    check_if_last_char_is_a_letter("apple pi e ") ➞ False
+    check_if_last_char_is_a_letter("") ➞ False 
+    '''
+
+
+def check_if_last_char_is_a_letter(txt):
+    '''
+    Create a function that returns True if the last character
+    of a given string is an alphabetical character and is not
+    a part of a word, and False otherwise.
+    Note: "word" is a group of characters separated by space.
+
+    Examples:
+    check_if_last_char_is_a_letter("apple pie") ➞ False
+    check_if_last_char_is_a_letter("apple pi e") ➞ True
+    check_if_last_char_is_a_letter("apple pi e ") ➞ False
+    check_if_last_char_is_a_letter("") ➞ False 
+    '''
+    # Strip the string of trailing whitespace
+    txt = txt.rstrip()
+    
+    # Check if the last character is a letter and if the second last character is not a letter
+    return len(txt) > 0 and txt[-1].isalpha() and (len(txt) == 1 or not txt[-2].isalpha())
+
+# Unit test
+assert check_if_last_char_is_a_letter('apple pie') == False
+
+
+----------
+Implementation 1: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def check_if_last_char_is_a_letter(txt):
+    '''
+    Create a function that returns True if the last character
+    of a given string is an alphabetical character and is not
+    a part of a word, and False otherwise.
+    Note: "word" is a group of characters separated by space.
+
+    Examples:
+    check_if_last_char_is_a_letter("apple pie") ➞ False
+    check_if_last_char_is_a_letter("apple pi e") ➞ True
+    check_if_last_char_is_a_letter("apple pi e ") ➞ False
+    check_if_last_char_is_a_letter("") ➞ False 
+    '''
+    # Strip the string of trailing whitespace
+    txt = txt.rstrip()
+    
+    # Check if the last character is a letter and if the second last character is not a letter
+    return len(txt) > 0 and txt[-1].isalpha() and (len(txt) == 1 or txt[-2] == ' ')
+
+# Unit test
+assert check_if_last_char_is_a_letter('apple pie') == False
+assert check_if_last_char_is_a_letter('apple pi e ') == False
+assert check_if_last_char_is_a_letter('apple pi e') == True
+assert check_if_last_char_is_a_letter('') == False
+
+----------
+Implementation 2: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def check_if_last_char_is_a_letter(txt):
+    '''
+    Create a function that returns True if the last character
+    of a given string is an alphabetical character and is not
+    a part of a word, and False otherwise.
+    Note: "word" is a group of characters separated by space.
+
+    Examples:
+    check_if_last_char_is_a_letter("apple pie") ➞ False
+    check_if_last_char_is_a_letter("apple pi e") ➞ True
+    check_if_last_char_is_a_letter("apple pi e ") ➞ False
+    check_if_last_char_is_a_letter("") ➞ False 
+    '''
+    # Strip the string of trailing whitespace
+    txt = txt.rstrip()
+    
+    # Check if the last character is a letter and if the second last character is not a letter or a space
+    return len(txt) > 0 and txt[-1].isalpha() and (len(txt) == 1 or not txt[-2].isalpha() and txt[-2] != ' ')
+
+# Unit test
+assert check_if_last_char_is_a_letter('apple pie') == False
+assert check_if_last_char_is_a_letter('apple pi e ') == False
+assert check_if_last_char_is_a_letter('apple pi e') == True
+assert check_if_last_char_is_a_letter('') == False
+
+----------
+Implementation 3: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def check_if_last_char_is_a_letter(txt):
+    '''
+    Create a function that returns True if the last character
+    of a given string is an alphabetical character and is not
+    a part of a word, and False otherwise.
+    Note: "word" is a group of characters separated by space.
+
+    Examples:
+    check_if_last_char_is_a_letter("apple pie") ➞ False
+    check_if_last_char_is_a_letter("apple pi e") ➞ True
+    check_if_last_char_is_a_letter("apple pi e ") ➞ False
+    check_if_last_char_is_a_letter("") ➞ False 
+    '''
+    # Strip the string of trailing whitespace
+    txt = txt.rstrip()
+    
+    # Check if the last character is a letter and if the second last character is not a letter or a space
+    return len(txt) > 0 and txt[-1].isalpha() and (len(txt) == 1 or (not txt[-2].isalpha() and txt[-2] != ' '))
+
+# Unit test
+assert check_if_last_char_is_a_letter('apple pie') == False
+assert check_if_last_char_is_a_letter('apple pi e ') == False
+assert check_if_last_char_is_a_letter('apple pi e') == True
+assert check_if_last_char_is_a_letter('') == False
+
+----------
+Implementation 4: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def check_if_last_char_is_a_letter(txt):
+    '''
+    Create a function that returns True if the last character
+    of a given string is an alphabetical character and is not
+    a part of a word, and False otherwise.
+    Note: "word" is a group of characters separated by space.
+
+    Examples:
+    check_if_last_char_is_a_letter("apple pie") ➞ False
+    check_if_last_char_is_a_letter("apple pi e") ➞ True
+    check_if_last_char_is_a_letter("apple pi e ") ➞ False
+    check_if_last_char_is_a_letter("") ➞ False 
+    '''
+    # Strip the string of trailing whitespace
+    txt = txt.rstrip()
+    
+    # Check if the last character is a letter and if the second last character is not a letter or a space
+    return len(txt) > 0 and txt[-1].isalpha() and (len(txt) == 1 or (not txt[-2].isalpha() and txt[-2] != ' '))
+
+# Unit test
+assert check_if_last_char_is_a_letter('apple pie') == False
+assert check_if_last_char_is_a_letter('apple pi e ') == False
+assert check_if_last_char_is_a_letter('apple pi e') == True
+assert check_if_last_char_is_a_letter('') == False
+
+----------
+Implementation 5: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def check_if_last_char_is_a_letter(txt):
+    '''
+    Create a function that returns True if the last character
+    of a given string is an alphabetical character and is not
+    a part of a word, and False otherwise.
+    Note: "word" is a group of characters separated by space.
+
+    Examples:
+    check_if_last_char_is_a_letter("apple pie") ➞ False
+    check_if_last_char_is_a_letter("apple pi e") ➞ True
+    check_if_last_char_is_a_letter("apple pi e ") ➞ False
+    check_if_last_char_is_a_letter("") ➞ False 
+    '''
+    # Strip the string of trailing whitespace
+    txt = txt.rstrip()
+    
+    # Check if the last character is a letter and if the second last character is not a letter or a space
+    return len(txt) > 0 and txt[-1].isalpha() and (len(txt) == 1 or (not txt[-2].isalpha() and txt[-2] != ' '))
+
+# Unit test
+assert check_if_last_char_is_a_letter('apple pie') == False
+assert check_if_last_char_is_a_letter('apple pi e') == True
+assert check_if_last_char_is_a_letter('apple pi e ') == False
+assert check_if_last_char_is_a_letter('') == False
+
+----------
+Implementation 6: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def check_if_last_char_is_a_letter(txt):
+    '''
+    Create a function that returns True if the last character
+    of a given string is an alphabetical character and is not
+    a part of a word, and False otherwise.
+    Note: "word" is a group of characters separated by space.
+
+    Examples:
+    check_if_last_char_is_a_letter("apple pie") ➞ False
+    check_if_last_char_is_a_letter("apple pi e") ➞ True
+    check_if_last_char_is_a_letter("apple pi e ") ➞ False
+    check_if_last_char_is_a_letter("") ➞ False 
+    '''
+    # Strip the string of trailing whitespace
+    txt = txt.rstrip()
+    
+    # Check if the last character is a letter and if the second last character is not a letter or a space
+    return len(txt) > 0 and txt[-1].isalpha() and (len(txt) == 1 or (not txt[-2].isalpha() and txt[-2] != ' '))
+
+# Unit test
+assert check_if_last_char_is_a_letter('apple pie') == False
+assert check_if_last_char_is_a_letter('apple pi e') == True
+assert check_if_last_char_is_a_letter('apple pi e ') == False
+assert check_if_last_char_is_a_letter('') == False
+
+----------
+Implementation 7: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def check_if_last_char_is_a_letter(txt):
+    '''
+    Create a function that returns True if the last character
+    of a given string is an alphabetical character and is not
+    a part of a word, and False otherwise.
+    Note: "word" is a group of characters separated by space.
+
+    Examples:
+    check_if_last_char_is_a_letter("apple pie") ➞ False
+    check_if_last_char_is_a_letter("apple pi e") ➞ True
+    check_if_last_char_is_a_letter("apple pi e ") ➞ False
+    check_if_last_char_is_a_letter("") ➞ False 
+    '''
+    # Strip the string of trailing whitespace
+    txt = txt.rstrip()
+    
+    # Check if the last character is a letter and if the second last character is not a letter or a space
+    return len(txt) > 0 and txt[-1].isalpha() and (len(txt) == 1 or (not txt[-2].isalpha() and txt[-2] != ' '))
+
+# Unit test
+assert check_if_last_char_is_a_letter('apple pie') == False
+assert check_if_last_char_is_a_letter('apple pi e') == True
+assert check_if_last_char_is_a_letter('apple pi e ') == False
+assert check_if_last_char_is_a_letter('') == False
+
+----------
+Implementation 8: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def check_if_last_char_is_a_letter(txt):
+    '''
+    Create a function that returns True if the last character
+    of a given string is an alphabetical character and is not
+    a part of a word, and False otherwise.
+    Note: "word" is a group of characters separated by space.
+
+    Examples:
+    check_if_last_char_is_a_letter("apple pie") ➞ False
+    check_if_last_char_is_a_letter("apple pi e") ➞ True
+    check_if_last_char_is_a_letter("apple pi e ") ➞ False
+    check_if_last_char_is_a_letter("") ➞ False 
+    '''
+    # Strip the string of trailing whitespace
+    txt = txt.rstrip()
+    
+    # Check if the last character is a letter and if the second last character is not a letter or a space
+    return len(txt) > 0 and txt[-1].isalpha() and (len(txt) == 1 or (not txt[-2].isalpha() and txt[-2] != ' '))
+
+# Unit test
+assert check_if_last_char_is_a_letter('apple pie') == False
+assert check_if_last_char_is_a_letter('apple pi e') == True
+assert check_if_last_char_is_a_letter('apple pi e ') == False
+assert check_if_last_char_is_a_letter('') == False
+
+----------
+Implementation 9: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def check_if_last_char_is_a_letter(txt):
+    '''
+    Create a function that returns True if the last character
+    of a given string is an alphabetical character and is not
+    a part of a word, and False otherwise.
+    Note: "word" is a group of characters separated by space.
+
+    Examples:
+    check_if_last_char_is_a_letter("apple pie") ➞ False
+    check_if_last_char_is_a_letter("apple pi e") ➞ True
+    check_if_last_char_is_a_letter("apple pi e ") ➞ False
+    check_if_last_char_is_a_letter("") ➞ False 
+    '''
+    # Strip the string of trailing whitespace
+    txt = txt.rstrip()
+    
+    # Check if the last character is a letter and if the second last character is not a letter or a space
+    return len(txt) > 0 and txt[-1].isalpha() and (len(txt) == 1 or (not txt[-2].isalpha() and txt[-2] != ' '))
+
+# Unit test
+assert check_if_last_char_is_a_letter('apple pie') == False
+assert check_if_last_char_is_a_letter('apple pi e') == True
+assert check_if_last_char_is_a_letter('apple pi e ') == False
+assert check_if_last_char_is_a_letter('') == False
+
+----------
+Implementation 10: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def check_if_last_char_is_a_letter(txt):
+    '''
+    Create a function that returns True if the last character
+    of a given string is an alphabetical character and is not
+    a part of a word, and False otherwise.
+    Note: "word" is a group of characters separated by space.
+
+    Examples:
+    check_if_last_char_is_a_letter("apple pie") ➞ False
+    check_if_last_char_is_a_letter("apple pi e") ➞ True
+    check_if_last_char_is_a_letter("apple pi e ") ➞ False
+    check_if_last_char_is_a_letter("") ➞ False 
+    '''
+    # Strip the string of trailing whitespace
+    txt = txt.rstrip()
+    
+    # Check if the last character is a letter and if the second last character is not a letter or a space
+    return len(txt) > 0 and txt[-1].isalpha() and (len(txt) == 1 or (not txt[-2].isalpha() and txt[-2] != ' '))
+
+# Unit test
+assert check_if_last_char_is_a_letter('apple pie') == False
+assert check_if_last_char_is_a_letter('apple pi e') == True
+assert check_if_last_char_is_a_letter('apple pi e ') == False
+assert check_if_last_char_is_a_letter('') == False
+
+----------
+--------------------
+------------------------------
+Debug iter: 7
+
+Prompt: 
+
+def file_name_check(file_name):
+    """Create a function which takes a string representing a file's name, and returns
+    'Yes' if the the file's name is valid, and returns 'No' otherwise.
+    A file's name is considered to be valid if and only if all the following conditions 
+    are met:
+    - There should not be more than three digits ('0'-'9') in the file's name.
+    - The file's name contains exactly one dot '.'
+    - The substring before the dot should not be empty, and it starts with a letter from 
+    the latin alphapet ('a'-'z' and 'A'-'Z').
+    - The substring after the dot should be one of these: ['txt', 'exe', 'dll']
+    Examples:
+    file_name_check("example.txt") # => 'Yes'
+    file_name_check("1example.dll") # => 'No' (the name should start with a latin alphapet letter)
+    """
+
+
+----------
+Canonical solution: 
+    suf = ['txt', 'exe', 'dll']
+    lst = file_name.split(sep='.')
+    if len(lst) != 2:
+        return 'No'
+    if not lst[1] in suf:
+        return 'No'
+    if len(lst[0]) == 0:
+        return 'No'
+    if not lst[0][0].isalpha():
+        return 'No'
+    t = len([x for x in lst[0] if x.isdigit()])
+    if t > 3:
+        return 'No'
+    return 'Yes'
+
+
+----------
+Implementation 0: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+
+def file_name_check(file_name):
+    """Create a function which takes a string representing a file's name, and returns
+    'Yes' if the the file's name is valid, and returns 'No' otherwise.
+    A file's name is considered to be valid if and only if all the following conditions 
+    are met:
+    - There should not be more than three digits ('0'-'9') in the file's name.
+    - The file's name contains exactly one dot '.'
+    - The substring before the dot should not be empty, and it starts with a letter from 
+    the latin alphapet ('a'-'z' and 'A'-'Z').
+    - The substring after the dot should be one of these: ['txt', 'exe', 'dll']
+    Examples:
+    file_name_check("example.txt") # => 'Yes'
+    file_name_check("1example.dll") # => 'No' (the name should start with a latin alphapet letter)
+    """
+
+
+import re
+
+def file_name_check(file_name):
+    # Regular expression to match the file name criteria
+    pattern = r'^[a-zA-Z][a-zA-Z0-9]{0,2}\.[txt|exe|dll]{3}$'
+    
+    # Check if the file name matches the pattern
+    if re.match(pattern, file_name):
+        return 'Yes'
+    else:
+        return 'No'
+
+# Unit test
+assert file_name_check('example.txt') == 'Yes'
+
+
+----------
+Implementation 1: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+import re
+
+def file_name_check(file_name):
+    """Create a function which takes a string representing a file's name, and returns
+    'Yes' if the the file's name is valid, and returns 'No' otherwise.
+    A file's name is considered to be valid if and only if all the following conditions 
+    are met:
+    - There should not be more than three digits ('0'-'9') in the file's name.
+    - The file's name contains exactly one dot '.'
+    - The substring before the dot should not be empty, and it starts with a letter from 
+    the latin alphapet ('a'-'z' and 'A'-'Z').
+    - The substring after the dot should be one of these: ['txt', 'exe', 'dll']
+    Examples:
+    file_name_check("example.txt") # => 'Yes'
+    file_name_check("1example.dll") # => 'No' (the name should start with a latin alphapet letter)
+    """
+    # Regular expression to match the file name criteria
+    pattern = r'^[a-zA-Z][a-zA-Z0-9]{0,2}\.[txt|exe|dll]{3}$'
+    
+    # Check if the file name matches the pattern
+    if re.match(pattern, file_name):
+        return 'Yes'
+    else:
+        return 'No'
+
+# Unit test
+assert file_name_check('example.txt') == 'Yes'
+
+----------
+Implementation 2: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+import re
+
+def file_name_check(file_name):
+    """Create a function which takes a string representing a file's name, and returns
+    'Yes' if the the file's name is valid, and returns 'No' otherwise.
+    A file's name is considered to be valid if and only if all the following conditions 
+    are met:
+    - There should not be more than three digits ('0'-'9') in the file's name.
+    - The file's name contains exactly one dot '.'
+    - The substring before the dot should not be empty, and it starts with a letter from 
+    the latin alphapet ('a'-'z' and 'A'-'Z').
+    - The substring after the dot should be one of these: ['txt', 'exe', 'dll']
+    Examples:
+    file_name_check("example.txt") # => 'Yes'
+    file_name_check("1example.dll") # => 'No' (the name should start with a latin alphapet letter)
+    """
+    # Regular expression to match the file name criteria
+    pattern = r'^[a-zA-Z][a-zA-Z0-9]{0,2}\.(txt|exe|dll)$'
+    
+    # Check if the file name matches the pattern
+    if re.match(pattern, file_name):
+        return 'Yes'
+    else:
+        return 'No'
+
+# Unit test
+assert file_name_check('example.txt') == 'Yes'
+
+----------
+Implementation 3: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+import re
+
+def file_name_check(file_name):
+    """Create a function which takes a string representing a file's name, and returns
+    'Yes' if the the file's name is valid, and returns 'No' otherwise.
+    A file's name is considered to be valid if and only if all the following conditions 
+    are met:
+    - There should not be more than three digits ('0'-'9') in the file's name.
+    - The file's name contains exactly one dot '.'
+    - The substring before the dot should not be empty, and it starts with a letter from 
+    the latin alphapet ('a'-'z' and 'A'-'Z').
+    - The substring after the dot should be one of these: ['txt', 'exe', 'dll']
+    Examples:
+    file_name_check("example.txt") # => 'Yes'
+    file_name_check("1example.dll") # => 'No' (the name should start with a latin alphapet letter)
+    """
+    # Regular expression to match the file name criteria
+    pattern = r'^[a-zA-Z][a-zA-Z]{0,2}\.(txt|exe|dll)$'
+    
+    # Check if the file name matches the pattern
+    if re.match(pattern, file_name):
+        return 'Yes'
+    else:
+        return 'No'
+
+# Unit test
+assert file_name_check('example.txt') == 'Yes'
+assert file_name_check('1example.dll') == 'No'
+
+----------
+Implementation 4: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+import re
+
+def file_name_check(file_name):
+    """Create a function which takes a string representing a file's name, and returns
+    'Yes' if the the file's name is valid, and returns 'No' otherwise.
+    A file's name is considered to be valid if and only if all the following conditions 
+    are met:
+    - There should not be more than three digits ('0'-'9') in the file's name.
+    - The file's name contains exactly one dot '.'
+    - The substring before the dot should not be empty, and it starts with a letter from 
+    the latin alphapet ('a'-'z' and 'A'-'Z').
+    - The substring after the dot should be one of these: ['txt', 'exe', 'dll']
+    Examples:
+    file_name_check("example.txt") # => 'Yes'
+    file_name_check("1example.dll") # => 'No' (the name should start with a latin alphapet letter)
+    """
+    # Regular expression to match the file name criteria
+    pattern = r'^[a-zA-Z][a-zA-Z]{0,2}\.(txt|exe|dll)$'
+    
+    # Check if the file name matches the pattern
+    if re.match(pattern, file_name):
+        return 'Yes'
+    else:
+        return 'No'
+
+# Unit test
+assert file_name_check('example.txt') == 'Yes'
+
+----------
+Implementation 5: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+import re
+
+def file_name_check(file_name):
+    """Create a function which takes a string representing a file's name, and returns
+    'Yes' if the the file's name is valid, and returns 'No' otherwise.
+    A file's name is considered to be valid if and only if all the following conditions 
+    are met:
+    - There should not be more than three digits ('0'-'9') in the file's name.
+    - The file's name contains exactly one dot '.'
+    - The substring before the dot should not be empty, and it starts with a letter from 
+    the latin alphapet ('a'-'z' and 'A'-'Z').
+    - The substring after the dot should be one of these: ['txt', 'exe', 'dll']
+    Examples:
+    file_name_check("example.txt") # => 'Yes'
+    file_name_check("1example.dll") # => 'No' (the name should start with a latin alphapet letter)
+    """
+    # Regular expression to match the file name criteria
+    pattern = r'^[a-zA-Z][a-zA-Z]\.(txt|exe|dll)$'
+    
+    # Check if the file name matches the pattern
+    if re.match(pattern, file_name):
+        return 'Yes'
+    else:
+        return 'No'
+
+# Unit test
+assert file_name_check('example.txt') == 'Yes'
+assert file_name_check('1example.dll') == 'No'
+
+----------
+Implementation 6: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+import re
+
+def file_name_check(file_name):
+    """Create a function which takes a string representing a file's name, and returns
+    'Yes' if the the file's name is valid, and returns 'No' otherwise.
+    A file's name is considered to be valid if and only if all the following conditions 
+    are met:
+    - There should not be more than three digits ('0'-'9') in the file's name.
+    - The file's name contains exactly one dot '.'
+    - The substring before the dot should not be empty, and it starts with a letter from 
+    the latin alphapet ('a'-'z' and 'A'-'Z').
+    - The substring after the dot should be one of these: ['txt', 'exe', 'dll']
+    Examples:
+    file_name_check("example.txt") # => 'Yes'
+    file_name_check("1example.dll") # => 'No' (the name should start with a latin alphapet letter)
+    """
+    # Regular expression to match the file name criteria
+    pattern = r'^[a-zA-Z][a-zA-Z0-9]\.(txt|exe|dll)$'
+    
+    # Check if the file name matches the pattern
+    if re.match(pattern, file_name):
+        return 'Yes'
+    else:
+        return 'No'
+
+# Unit test
+assert file_name_check('example.txt') == 'Yes'
+assert file_name_check('1example.dll') == 'No'
+
+----------
+Implementation 7: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+import re
+
+def file_name_check(file_name):
+    """Create a function which takes a string representing a file's name, and returns
+    'Yes' if the the file's name is valid, and returns 'No' otherwise.
+    A file's name is considered to be valid if and only if all the following conditions 
+    are met:
+    - There should not be more than three digits ('0'-'9') in the file's name.
+    - The file's name contains exactly one dot '.'
+    - The substring before the dot should not be empty, and it starts with a letter from 
+    the latin alphapet ('a'-'z' and 'A'-'Z').
+    - The substring after the dot should be one of these: ['txt', 'exe', 'dll']
+    Examples:
+    file_name_check("example.txt") # => 'Yes'
+    file_name_check("1example.dll") # => 'No' (the name should start with a latin alphapet letter)
+    """
+    # Regular expression to match the file name criteria
+    pattern = r'^[a-zA-Z][a-zA-Z0-9]+\.(txt|exe|dll)$'
+    
+    # Check if the file name matches the pattern
+    if re.match(pattern, file_name):
+        return 'Yes'
+    else:
+        return 'No'
+
+# Unit test
+assert file_name_check('example.txt') == 'Yes'
+assert file_name_check('1example.dll') == 'No'
+
+----------
+--------------------
+------------------------------
+Debug iter: 10
+
+Prompt: 
+
+def order_by_points(nums):
+    """
+    Write a function which sorts the given list of integers
+    in ascending order according to the sum of their digits.
+    Note: if there are several items with similar sum of their digits,
+    order them based on their index in original list.
+
+    For example:
+    >>> order_by_points([1, 11, -1, -11, -12]) == [-1, -11, 1, -12, 11]
+    >>> order_by_points([]) == []
+    """
+
+
+----------
+Canonical solution: 
+    def digits_sum(n):
+        neg = 1
+        if n < 0: n, neg = -1 * n, -1 
+        n = [int(i) for i in str(n)]
+        n[0] = n[0] * neg
+        return sum(n)
+    return sorted(nums, key=digits_sum)
+
+
+----------
+Implementation 0: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+
+def order_by_points(nums):
+    """
+    Write a function which sorts the given list of integers
+    in ascending order according to the sum of their digits.
+    Note: if there are several items with similar sum of their digits,
+    order them based on their index in original list.
+
+    For example:
+    >>> order_by_points([1, 11, -1, -11, -12]) == [-1, -11, 1, -12, 11]
+    >>> order_by_points([]) == []
+    """
+
+
+def order_by_points(nums):
+    """
+    Write a function which sorts the given list of integers
+    in ascending order according to the sum of their digits.
+    Note: if there are several items with similar sum of their digits,
+    order them based on their index in original list.
+
+    For example:
+    >>> order_by_points([1, 11, -1, -11, -12]) == [-1, -11, 1, -12, 11]
+    >>> order_by_points([]) == []
+    """
+    def sum_of_digits(num):
+        return sum(int(digit) for digit in str(abs(num)))
+
+    return sorted(nums, key=lambda x: (sum_of_digits(x), nums.index(x)))
+
+# Unit test
+assert order_by_points([1, 11, -1, -11, -12]) == [-1, -11, 1, -12, 11]
+
+
+----------
+Implementation 1: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def order_by_points(nums):
+    """
+    Write a function which sorts the given list of integers
+    in ascending order according to the sum of their digits.
+    Note: if there are several items with similar sum of their digits,
+    order them based on their index in original list.
+
+    For example:
+    >>> order_by_points([1, 11, -1, -11, -12]) == [-1, -11, 1, -12, 11]
+    >>> order_by_points([]) == []
+    """
+    def sum_of_digits(num):
+        return sum(int(digit) for digit in str(abs(num)))
+
+    return sorted(nums, key=lambda x: (sum_of_digits(x), nums.index(x)))
+
+----------
+Implementation 2: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def order_by_points(nums):
+    """
+    Write a function which sorts the given list of integers
+    in ascending order according to the sum of their digits.
+    Note: if there are several items with similar sum of their digits,
+    order them based on their index in original list.
+
+    For example:
+    >>> order_by_points([1, 11, -1, -11, -12]) == [-1, -11, 1, -12, 11]
+    >>> order_by_points([]) == []
+    """
+    def sum_of_digits(num):
+        return sum(int(digit) for digit in str(abs(num)))
+
+    return sorted(nums, key=lambda x: (sum_of_digits(x), nums.index(x, nums.index(x) + 1)))
+
+----------
+Implementation 3: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def order_by_points(nums):
+    """
+    Write a function which sorts the given list of integers
+    in ascending order according to the sum of their digits.
+    Note: if there are several items with similar sum of their digits,
+    order them based on their index in original list.
+
+    For example:
+    >>> order_by_points([1, 11, -1, -11, -12]) == [-1, -11, 1, -12, 11]
+    >>> order_by_points([]) == []
+    """
+    def sum_of_digits(num):
+        return sum(int(digit) for digit in str(abs(num)))
+
+    return sorted(nums, key=lambda x: (sum_of_digits(x), nums.index(x, nums.index(x) + 1) if nums.count(x) > 1 else nums.index(x)))
+
+----------
+Implementation 4: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def order_by_points(nums):
+    """
+    Write a function which sorts the given list of integers
+    in ascending order according to the sum of their digits.
+    Note: if there are several items with similar sum of their digits,
+    order them based on their index in original list.
+
+    For example:
+    >>> order_by_points([1, 11, -1, -11, -12]) == [-1, -11, 1, -12, 11]
+    >>> order_by_points([]) == []
+    """
+    def sum_of_digits(num):
+        return sum(int(digit) for digit in str(abs(num)))
+
+    return sorted(nums, key=lambda x: (sum_of_digits(x), nums.index(x)))
+
+----------
+Implementation 5: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def order_by_points(nums):
+    """
+    Write a function which sorts the given list of integers
+    in ascending order according to the sum of their digits.
+    Note: if there are several items with similar sum of their digits,
+    order them based on their index in original list.
+
+    For example:
+    >>> order_by_points([1, 11, -1, -11, -12]) == [-1, -11, 1, -12, 11]
+    >>> order_by_points([]) == []
+    """
+    def sum_of_digits(num):
+        return sum(int(digit) for digit in str(abs(num)))
+
+    return sorted(nums, key=lambda x: (sum_of_digits(x), nums.index(x, nums.index(x) + 1) if nums.count(x) > 1 else nums.index(x)))
+
+----------
+Implementation 6: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def order_by_points(nums):
+    """
+    Write a function which sorts the given list of integers
+    in ascending order according to the sum of their digits.
+    Note: if there are several items with similar sum of their digits,
+    order them based on their index in original list.
+
+    For example:
+    >>> order_by_points([1, 11, -1, -11, -12]) == [-1, -11, 1, -12, 11]
+    >>> order_by_points([]) == []
+    """
+    def sum_of_digits(num):
+        return sum(int(digit) for digit in str(abs(num)))
+
+    return sorted(nums, key=lambda x: (sum_of_digits(x), nums.index(x)))
+
+----------
+Implementation 7: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def order_by_points(nums):
+    """
+    Write a function which sorts the given list of integers
+    in ascending order according to the sum of their digits.
+    Note: if there are several items with similar sum of their digits,
+    order them based on their index in original list.
+
+    For example:
+    >>> order_by_points([1, 11, -1, -11, -12]) == [-1, -11, 1, -12, 11]
+    >>> order_by_points([]) == []
+    """
+    def sum_of_digits(num):
+        return sum(int(digit) for digit in str(abs(num)))
+
+    return sorted(nums, key=lambda x: (sum_of_digits(x), nums.index(x, nums.index(x) + 1) if nums.count(x) > 1 else nums.index(x)))
+
+----------
+Implementation 8: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def order_by_points(nums):
+    """
+    Write a function which sorts the given list of integers
+    in ascending order according to the sum of their digits.
+    Note: if there are several items with similar sum of their digits,
+    order them based on their index in original list.
+
+    For example:
+    >>> order_by_points([1, 11, -1, -11, -12]) == [-1, -11, 1, -12, 11]
+    >>> order_by_points([]) == []
+    """
+    def sum_of_digits(num):
+        return sum(int(digit) for digit in str(abs(num)))
+
+    return sorted(nums, key=lambda x: (sum_of_digits(x), nums.index(x)))
+
+----------
+Implementation 9: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def order_by_points(nums):
+    """
+    Write a function which sorts the given list of integers
+    in ascending order according to the sum of their digits.
+    Note: if there are several items with similar sum of their digits,
+    order them based on their index in original list.
+
+    For example:
+    >>> order_by_points([1, 11, -1, -11, -12]) == [-1, -11, 1, -12, 11]
+    >>> order_by_points([]) == []
+    """
+    def sum_of_digits(num):
+        return sum(int(digit) for digit in str(abs(num)))
+
+    return sorted(nums, key=lambda x: (sum_of_digits(x), nums.index(x, nums.index(x) + 1) if nums.count(x) > 1 else nums.index(x)))
+
+----------
+Implementation 10: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def order_by_points(nums):
+    """
+    Write a function which sorts the given list of integers
+    in ascending order according to the sum of their digits.
+    Note: if there are several items with similar sum of their digits,
+    order them based on their index in original list.
+
+    For example:
+    >>> order_by_points([1, 11, -1, -11, -12]) == [-1, -11, 1, -12, 11]
+    >>> order_by_points([]) == []
+    """
+    def sum_of_digits(num):
+        return sum(int(digit) for digit in str(abs(num)))
+
+    return sorted(nums, key=lambda x: (sum_of_digits(x), nums.index(x)))
+
+----------
+--------------------
+------------------------------
+Debug iter: 10
+
+Prompt: 
+
+def do_algebra(operator, operand):
+    """
+    Given two lists operator, and operand. The first list has basic algebra operations, and 
+    the second list is a list of integers. Use the two given lists to build the algebric 
+    expression and return the evaluation of this expression.
+
+    The basic algebra operations:
+    Addition ( + ) 
+    Subtraction ( - ) 
+    Multiplication ( * ) 
+    Floor division ( // ) 
+    Exponentiation ( ** ) 
+
+    Example:
+    operator['+', '*', '-']
+    array = [2, 3, 4, 5]
+    result = 2 + 3 * 4 - 5
+    => result = 9
+
+    Note:
+        The length of operator list is equal to the length of operand list minus one.
+        Operand is a list of of non-negative integers.
+        Operator list has at least one operator, and operand list has at least two operands.
+
+    """
+
+
+----------
+Canonical solution: 
+    expression = str(operand[0])
+    for oprt, oprn in zip(operator, operand[1:]):
+        expression+= oprt + str(oprn)
+    return eval(expression)
+
+
+----------
+Implementation 0: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+
+def do_algebra(operator, operand):
+    """
+    Given two lists operator, and operand. The first list has basic algebra operations, and 
+    the second list is a list of integers. Use the two given lists to build the algebric 
+    expression and return the evaluation of this expression.
+
+    The basic algebra operations:
+    Addition ( + ) 
+    Subtraction ( - ) 
+    Multiplication ( * ) 
+    Floor division ( // ) 
+    Exponentiation ( ** ) 
+
+    Example:
+    operator['+', '*', '-']
+    array = [2, 3, 4, 5]
+    result = 2 + 3 * 4 - 5
+    => result = 9
+
+    Note:
+        The length of operator list is equal to the length of operand list minus one.
+        Operand is a list of of non-negative integers.
+        Operator list has at least one operator, and operand list has at least two operands.
+
+    """
+
+
+def do_algebra(operators, operands):
+    """
+    Given two lists operators, and operands. The first list has basic algebra operations, and 
+    the second list is a list of integers. Use the two given lists to build the algebraic 
+    expression and return the evaluation of this expression.
+
+    The basic algebra operations:
+    Addition ( + ) 
+    Subtraction ( - ) 
+    Multiplication ( * ) 
+    Floor division ( // ) 
+    Exponentiation ( ** ) 
+
+    Example:
+    operators = ['+', '*', '-']
+    operands = [2, 3, 4, 5]
+    result = 2 + 3 * 4 - 5
+    => result = 9
+
+    Note:
+        The length of operators list is equal to the length of operands list minus one.
+        Operands is a list of non-negative integers.
+        Operators list has at least one operator, and operands list has at least two operands.
+
+    """
+    # Start with the first operand
+    result = operands[0]
+
+    # Iterate through the operators and the remaining operands
+    for op, num in zip(operators, operands[1:]):
+        if op == '+':
+            result += num
+        elif op == '-':
+            result -= num
+        elif op == '*':
+            result *= num
+        elif op == '//':
+            result //= num
+        elif op == '**':
+            result **= num
+        else:
+            raise ValueError("Invalid operator: " + op)
+
+    return result
+
+# Unit test
+assert do_algebra(['+', '*', '-'], [2, 3, 4, 5]) == 9
+
+
+----------
+Implementation 1: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def do_algebra(operators, operands):
+    """
+    Given two lists operators, and operands. The first list has basic algebra operations, and 
+    the second list is a list of integers. Use the two given lists to build the algebraic 
+    expression and return the evaluation of this expression.
+
+    The basic algebra operations:
+    Addition ( + ) 
+    Subtraction ( - ) 
+    Multiplication ( * ) 
+    Floor division ( // ) 
+    Exponentiation ( ** ) 
+
+    Example:
+    operators = ['+', '*', '-']
+    operands = [2, 3, 4, 5]
+    result = 2 + 3 * 4 - 5
+    => result = 9
+
+    Note:
+        The length of operators list is equal to the length of operands list minus one.
+        Operands is a list of non-negative integers.
+        Operators list has at least one operator, and operands list has at least two operands.
+
+    """
+    # Start with the first operand
+    result = operands[0]
+
+    # Iterate through the operators and the remaining operands
+    for op, num in zip(operators, operands[1:]):
+        if op == '+':
+            result += num
+        elif op == '-':
+            result -= num
+        elif op == '*':
+            result *= num
+        elif op == '//':
+            result //= num
+        elif op == '**':
+            result **= num
+        else:
+            raise ValueError("Invalid operator: " + op)
+
+    return result
+
+# Unit test
+assert do_algebra(['+', '*', '-'], [2, 3, 4, 5]) == 9
+
+----------
+Implementation 2: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def do_algebra(operators, operands):
+    """
+    Given two lists operators, and operands. The first list has basic algebra operations, and 
+    the second list is a list of integers. Use the two given lists to build the algebraic 
+    expression and return the evaluation of this expression.
+
+    The basic algebra operations:
+    Addition ( + ) 
+    Subtraction ( - ) 
+    Multiplication ( * ) 
+    Floor division ( // ) 
+    Exponentiation ( ** ) 
+
+    Example:
+    operators = ['+', '*', '-']
+    operands = [2, 3, 4, 5]
+    result = 2 + 3 * 4 - 5
+    => result = 9
+
+    Note:
+        The length of operators list is equal to the length of operands list minus one.
+        Operands is a list of non-negative integers.
+        Operators list has at least one operator, and operands list has at least two operands.
+
+    """
+    # Start with the first operand
+    result = operands[0]
+
+    # Iterate through the operators and the remaining operands
+    for op, num in zip(operators, operands[1:]):
+        if op == '+':
+            result += num
+        elif op == '-':
+            result -= num
+        elif op == '*':
+            result *= num
+        elif op == '//':
+            result //= num
+        elif op == '**':
+            result **= num
+        else:
+            raise ValueError("Invalid operator: " + op)
+
+    return result
+
+# Unit test
+assert do_algebra(['+', '*', '-'], [2, 3, 4, 5]) == 9
+
+----------
+Implementation 3: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def do_algebra(operators, operands):
+    """
+    Given two lists operators, and operands. The first list has basic algebra operations, and 
+    the second list is a list of integers. Use the two given lists to build the algebraic 
+    expression and return the evaluation of this expression.
+
+    The basic algebra operations:
+    Addition ( + ) 
+    Subtraction ( - ) 
+    Multiplication ( * ) 
+    Floor division ( // ) 
+    Exponentiation ( ** ) 
+
+    Example:
+    operators = ['+', '*', '-']
+    operands = [2, 3, 4, 5]
+    result = 2 + 3 * 4 - 5
+    => result = 9
+
+    Note:
+        The length of operators list is equal to the length of operands list minus one.
+        Operands is a list of non-negative integers.
+        Operators list has at least one operator, and operands list has at least two operands.
+
+    """
+    # Start with the first operand
+    result = operands[0]
+
+    # Iterate through the operators and the remaining operands
+    for op, num in zip(operators, operands[1:]):
+        if op == '+':
+            result += num
+        elif op == '-':
+            result -= num
+        elif op == '*':
+            result *= num
+        elif op == '//':
+            result //= num
+        elif op == '**':
+            result **= num
+        else:
+            raise ValueError("Invalid operator: " + op)
+
+    return result
+
+# Unit test
+assert do_algebra(['+', '*', '-'], [2, 3, 4, 5]) == 9
+
+----------
+Implementation 4: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def do_algebra(operators, operands):
+    """
+    Given two lists operators, and operands. The first list has basic algebra operations, and 
+    the second list is a list of integers. Use the two given lists to build the algebraic 
+    expression and return the evaluation of this expression.
+
+    The basic algebra operations:
+    Addition ( + ) 
+    Subtraction ( - ) 
+    Multiplication ( * ) 
+    Floor division ( // ) 
+    Exponentiation ( ** ) 
+
+    Example:
+    operators = ['+', '*', '-']
+    operands = [2, 3, 4, 5]
+    result = 2 + 3 * 4 - 5
+    => result = 9
+
+    Note:
+        The length of operators list is equal to the length of operands list minus one.
+        Operands is a list of non-negative integers.
+        Operators list has at least one operator, and operands list has at least two operands.
+
+    """
+    # Start with the first operand
+    result = operands[0]
+
+    # Iterate through the operators and the remaining operands
+    for op, num in zip(operators, operands[1:]):
+        if op == '+':
+            result += num
+        elif op == '-':
+            result -= num
+        elif op == '*':
+            result *= num
+        elif op == '//':
+            result //= num
+        elif op == '**':
+            result **= num
+        else:
+            raise ValueError("Invalid operator: " + op)
+
+    return result
+
+# Unit test
+assert do_algebra(['+', '*', '-'], [2, 3, 4, 5]) == 9
+
+----------
+Implementation 5: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def do_algebra(operators, operands):
+    """
+    Given two lists operators, and operands. The first list has basic algebra operations, and 
+    the second list is a list of integers. Use the two given lists to build the algebraic 
+    expression and return the evaluation of this expression.
+
+    The basic algebra operations:
+    Addition ( + ) 
+    Subtraction ( - ) 
+    Multiplication ( * ) 
+    Floor division ( // ) 
+    Exponentiation ( ** ) 
+
+    Example:
+    operators = ['+', '*', '-']
+    operands = [2, 3, 4, 5]
+    result = 2 + 3 * 4 - 5
+    => result = 9
+
+    Note:
+        The length of operators list is equal to the length of operands list minus one.
+        Operands is a list of non-negative integers.
+        Operators list has at least one operator, and operands list has at least two operands.
+
+    """
+    # Start with the first operand
+    result = operands[0]
+
+    # Iterate through the operators and the remaining operands
+    for op, num in zip(operators, operands[1:]):
+        if op == '+':
+            result += num
+        elif op == '-':
+            result -= num
+        elif op == '*':
+            result *= num
+        elif op == '//':
+            result //= num
+        elif op == '**':
+            result **= num
+        else:
+            raise ValueError("Invalid operator: " + op)
+
+    return result
+
+# Unit test
+assert do_algebra(['+', '*', '-'], [2, 3, 4, 5]) == 9
+
+----------
+Implementation 6: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def do_algebra(operators, operands):
+    """
+    Given two lists operators, and operands. The first list has basic algebra operations, and 
+    the second list is a list of integers. Use the two given lists to build the algebraic 
+    expression and return the evaluation of this expression.
+
+    The basic algebra operations:
+    Addition ( + ) 
+    Subtraction ( - ) 
+    Multiplication ( * ) 
+    Floor division ( // ) 
+    Exponentiation ( ** ) 
+
+    Example:
+    operators = ['+', '*', '-']
+    operands = [2, 3, 4, 5]
+    result = 2 + 3 * 4 - 5
+    => result = 9
+
+    Note:
+        The length of operators list is equal to the length of operands list minus one.
+        Operands is a list of non-negative integers.
+        Operators list has at least one operator, and operands list has at least two operands.
+
+    """
+    # Start with the first operand
+    result = operands[0]
+
+    # Iterate through the operators and the remaining operands
+    for op, num in zip(operators, operands[1:]):
+        if op == '+':
+            result += num
+        elif op == '-':
+            result -= num
+        elif op == '*':
+            result *= num
+        elif op == '//':
+            result //= num
+        elif op == '**':
+            result **= num
+        else:
+            raise ValueError("Invalid operator: " + op)
+
+    return result
+
+# Unit test
+assert do_algebra(['+', '*', '-'], [2, 3, 4, 5]) == 9
+
+----------
+Implementation 7: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def do_algebra(operators, operands):
+    """
+    Given two lists operators, and operands. The first list has basic algebra operations, and 
+    the second list is a list of integers. Use the two given lists to build the algebraic 
+    expression and return the evaluation of this expression.
+
+    The basic algebra operations:
+    Addition ( + ) 
+    Subtraction ( - ) 
+    Multiplication ( * ) 
+    Floor division ( // ) 
+    Exponentiation ( ** ) 
+
+    Example:
+    operators = ['+', '*', '-']
+    operands = [2, 3, 4, 5]
+    result = 2 + 3 * 4 - 5
+    => result = 9
+
+    Note:
+        The length of operators list is equal to the length of operands list minus one.
+        Operands is a list of non-negative integers.
+        Operators list has at least one operator, and operands list has at least two operands.
+
+    """
+    # Start with the first operand
+    result = operands[0]
+
+    # Iterate through the operators and the remaining operands
+    for op, num in zip(operators, operands[1:]):
+        if op == '+':
+            result += num
+        elif op == '-':
+            result -= num
+        elif op == '*':
+            result *= num
+        elif op == '//':
+            result //= num
+        elif op == '**':
+            result **= num
+        else:
+            raise ValueError("Invalid operator: " + op)
+
+    return result
+
+# Unit test
+assert do_algebra(['+', '*', '-'], [2, 3, 4, 5]) == 9
+
+----------
+Implementation 8: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def do_algebra(operators, operands):
+    """
+    Given two lists operators, and operands. The first list has basic algebra operations, and 
+    the second list is a list of integers. Use the two given lists to build the algebraic 
+    expression and return the evaluation of this expression.
+
+    The basic algebra operations:
+    Addition ( + ) 
+    Subtraction ( - ) 
+    Multiplication ( * ) 
+    Floor division ( // ) 
+    Exponentiation ( ** ) 
+
+    Example:
+    operators = ['+', '*', '-']
+    operands = [2, 3, 4, 5]
+    result = 2 + 3 * 4 - 5
+    => result = 9
+
+    Note:
+        The length of operators list is equal to the length of operands list minus one.
+        Operands is a list of non-negative integers.
+        Operators list has at least one operator, and operands list has at least two operands.
+
+    """
+    # Start with the first operand
+    result = operands[0]
+
+    # Iterate through the operators and the remaining operands
+    for op, num in zip(operators, operands[1:]):
+        if op == '+':
+            result += num
+        elif op == '-':
+            result -= num
+        elif op == '*':
+            result *= num
+        elif op == '//':
+            result //= num
+        elif op == '**':
+            result **= num
+        else:
+            raise ValueError("Invalid operator: " + op)
+
+    return result
+
+# Unit test
+assert do_algebra(['+', '*', '-'], [2, 3, 4, 5]) == 9
+
+----------
+Implementation 9: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def do_algebra(operators, operands):
+    """
+    Given two lists operators, and operands. The first list has basic algebra operations, and 
+    the second list is a list of integers. Use the two given lists to build the algebraic 
+    expression and return the evaluation of this expression.
+
+    The basic algebra operations:
+    Addition ( + ) 
+    Subtraction ( - ) 
+    Multiplication ( * ) 
+    Floor division ( // ) 
+    Exponentiation ( ** ) 
+
+    Example:
+    operators = ['+', '*', '-']
+    operands = [2, 3, 4, 5]
+    result = 2 + 3 * 4 - 5
+    => result = 9
+
+    Note:
+        The length of operators list is equal to the length of operands list minus one.
+        Operands is a list of non-negative integers.
+        Operators list has at least one operator, and operands list has at least two operands.
+
+    """
+    # Start with the first operand
+    result = operands[0]
+
+    # Iterate through the operators and the remaining operands
+    for op, num in zip(operators, operands[1:]):
+        if op == '+':
+            result += num
+        elif op == '-':
+            result -= num
+        elif op == '*':
+            result *= num
+        elif op == '//':
+            result //= num
+        elif op == '**':
+            result **= num
+        else:
+            raise ValueError("Invalid operator: " + op)
+
+    return result
+
+# Unit test
+assert do_algebra(['+', '*', '-'], [2, 3, 4, 5]) == 9
+
+----------
+Implementation 10: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def do_algebra(operators, operands):
+    """
+    Given two lists operators, and operands. The first list has basic algebra operations, and 
+    the second list is a list of integers. Use the two given lists to build the algebraic 
+    expression and return the evaluation of this expression.
+
+    The basic algebra operations:
+    Addition ( + ) 
+    Subtraction ( - ) 
+    Multiplication ( * ) 
+    Floor division ( // ) 
+    Exponentiation ( ** ) 
+
+    Example:
+    operators = ['+', '*', '-']
+    operands = [2, 3, 4, 5]
+    result = 2 + 3 * 4 - 5
+    => result = 9
+
+    Note:
+        The length of operators list is equal to the length of operands list minus one.
+        Operands is a list of non-negative integers.
+        Operators list has at least one operator, and operands list has at least two operands.
+
+    """
+    # Start with the first operand
+    result = operands[0]
+
+    # Iterate through the operators and the remaining operands
+    for op, num in zip(operators, operands[1:]):
+        if op == '+':
+            result += num
+        elif op == '-':
+            result -= num
+        elif op == '*':
+            result *= num
+        elif op == '//':
+            result //= num
+        elif op == '**':
+            result **= num
+        else:
+            raise ValueError("Invalid operator: " + op)
+
+    return result
+
+# Unit test
+assert do_algebra(['+', '*', '-'], [2, 3, 4, 5]) == 9
+
+----------
+--------------------
+------------------------------
+Debug iter: 10
+
+Prompt: 
+
+def generate_integers(a, b):
+    """
+    Given two positive integers a and b, return the even digits between a
+    and b, in ascending order.
+
+    For example:
+    generate_integers(2, 8) => [2, 4, 6, 8]
+    generate_integers(8, 2) => [2, 4, 6, 8]
+    generate_integers(10, 14) => []
+    """
+
+
+----------
+Canonical solution: 
+    lower = max(2, min(a, b))
+    upper = min(8, max(a, b))
+
+    return [i for i in range(lower, upper+1) if i % 2 == 0]
+
+
+----------
+Implementation 0: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+
+def generate_integers(a, b):
+    """
+    Given two positive integers a and b, return the even digits between a
+    and b, in ascending order.
+
+    For example:
+    generate_integers(2, 8) => [2, 4, 6, 8]
+    generate_integers(8, 2) => [2, 4, 6, 8]
+    generate_integers(10, 14) => []
+    """
+
+
+def generate_integers(a, b):
+    """
+    Given two positive integers a and b, return the even digits between a
+    and b, in ascending order.
+
+    For example:
+    generate_integers(2, 8) => [2, 4, 6, 8]
+    generate_integers(8, 2) => [2, 4, 6, 8]
+    generate_integers(10, 14) => []
+    """
+    # Ensure that a is less than b
+    if a > b:
+        a, b = b, a
+
+    # Generate the list of even integers between a and b
+    return [i for i in range(a, b + 1) if i % 2 == 0]
+
+# Unit test
+assert generate_integers(2, 8) == [2, 4, 6, 8]
+
+
+----------
+Implementation 1: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def generate_integers(a, b):
+    """
+    Given two positive integers a and b, return the even digits between a
+    and b, in ascending order.
+
+    For example:
+    generate_integers(2, 8) => [2, 4, 6, 8]
+    generate_integers(8, 2) => [2, 4, 6, 8]
+    generate_integers(10, 14) => []
+    """
+    # Ensure that a is less than b
+    if a > b:
+        a, b = b, a
+
+    # Generate the list of even integers between a and b
+    return [i for i in range(a, b + 1) if i % 2 == 0]
+
+----------
+Implementation 2: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def generate_integers(a, b):
+    """
+    Given two positive integers a and b, return the even digits between a
+    and b, in ascending order.
+
+    For example:
+    generate_integers(2, 8) => [2, 4, 6, 8]
+    generate_integers(8, 2) => [2, 4, 6, 8]
+    generate_integers(10, 14) => []
+    """
+    # Ensure that a is less than b
+    if a > b:
+        a, b = b, a
+
+    # Generate the list of even integers between a and b
+    return [i for i in range(a, b + 1) if i % 2 == 0 and i != b]
+
+----------
+Implementation 3: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def generate_integers(a, b):
+    """
+    Given two positive integers a and b, return the even digits between a
+    and b, in ascending order.
+
+    For example:
+    generate_integers(2, 8) => [2, 4, 6, 8]
+    generate_integers(8, 2) => [2, 4, 6, 8]
+    generate_integers(10, 14) => []
+    """
+    # Ensure that a is less than b
+    if a > b:
+        a, b = b, a
+
+    # Generate the list of even integers between a and b
+    return [i for i in range(a, b + 1) if i % 2 == 0]
+
+----------
+Implementation 4: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def generate_integers(a, b):
+    """
+    Given two positive integers a and b, return the even digits between a
+    and b, in ascending order.
+
+    For example:
+    generate_integers(2, 8) => [2, 4, 6, 8]
+    generate_integers(8, 2) => [2, 4, 6, 8]
+    generate_integers(10, 14) => []
+    """
+    # Ensure that a is less than b
+    if a > b:
+        a, b = b, a
+
+    # Generate the list of even integers between a and b
+    return [i for i in range(a, b + 1) if i % 2 == 0 and i != b]
+
+----------
+Implementation 5: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def generate_integers(a, b):
+    """
+    Given two positive integers a and b, return the even digits between a
+    and b, in ascending order.
+
+    For example:
+    generate_integers(2, 8) => [2, 4, 6, 8]
+    generate_integers(8, 2) => [2, 4, 6, 8]
+    generate_integers(10, 14) => []
+    """
+    # Ensure that a is less than b
+    if a > b:
+        a, b = b, a
+
+    # Generate the list of even integers between a and b
+    return [i for i in range(a, b + 1) if i % 2 == 0]
+
+----------
+Implementation 6: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def generate_integers(a, b):
+    """
+    Given two positive integers a and b, return the even digits between a
+    and b, in ascending order.
+
+    For example:
+    generate_integers(2, 8) => [2, 4, 6, 8]
+    generate_integers(8, 2) => [2, 4, 6, 8]
+    generate_integers(10, 14) => []
+    """
+    # Ensure that a is less than b
+    if a > b:
+        a, b = b, a
+
+    # Generate the list of even integers between a and b
+    return [i for i in range(a, b + 1) if i % 2 == 0 and i != b]
+
+----------
+Implementation 7: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def generate_integers(a, b):
+    """
+    Given two positive integers a and b, return the even digits between a
+    and b, in ascending order.
+
+    For example:
+    generate_integers(2, 8) => [2, 4, 6, 8]
+    generate_integers(8, 2) => [2, 4, 6, 8]
+    generate_integers(10, 14) => []
+    """
+    # Ensure that a is less than b
+    if a > b:
+        a, b = b, a
+
+    # Generate the list of even integers between a and b
+    return [i for i in range(a, b + 1) if i % 2 == 0]
+
+----------
+Implementation 8: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def generate_integers(a, b):
+    """
+    Given two positive integers a and b, return the even digits between a
+    and b, in ascending order.
+
+    For example:
+    generate_integers(2, 8) => [2, 4, 6, 8]
+    generate_integers(8, 2) => [2, 4, 6, 8]
+    generate_integers(10, 14) => []
+    """
+    # Ensure that a is less than b
+    if a > b:
+        a, b = b, a
+
+    # Generate the list of even integers between a and b
+    return [i for i in range(a, b + 1) if i % 2 == 0 and i != b]
+
+----------
+Implementation 9: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def generate_integers(a, b):
+    """
+    Given two positive integers a and b, return the even digits between a
+    and b, in ascending order.
+
+    For example:
+    generate_integers(2, 8) => [2, 4, 6, 8]
+    generate_integers(8, 2) => [2, 4, 6, 8]
+    generate_integers(10, 14) => []
+    """
+    # Ensure that a is less than b
+    if a > b:
+        a, b = b, a
+
+    # Generate the list of even integers between a and b
+    return [i for i in range(a, b + 1) if i % 2 == 0]
+
+----------
+Implementation 10: 
+from typing import *
+import math
+from heapq import *
+import itertools
+import re
+import typing
+import heapq
+_str=str
+import re
+def generate_integers(a, b):
+    """
+    Given two positive integers a and b, return the even digits between a
+    and b, in ascending order.
+
+    For example:
+    generate_integers(2, 8) => [2, 4, 6, 8]
+    generate_integers(8, 2) => [2, 4, 6, 8]
+    generate_integers(10, 14) => []
+    """
+    # Ensure that a is less than b
+    if a > b:
+        a, b = b, a
+
+    # Generate the list of even integers between a and b
+    return [i for i in range(a, b + 1) if i % 2 == 0]
+
+----------
+--------------------

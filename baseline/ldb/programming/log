@@ -1,0 +1,10 @@
+
+Starting run with the following parameters:
+strategy: ldb
+pass@k: 1
+
+Loading the dataset...
+Loaded 560 examples
+Number of proc: 1
+testfile ../input_data/transcoder/test/tests.jsonl
+|| Begin Executing...
