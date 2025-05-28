@@ -61,29 +61,30 @@ from self_debugging_trace import ut_trace_baseline
 
 # Example usage
 fixed_code = simple_baseline(buggy_code, entry_point)
+
+# For baselines that need test cases
+test_cases = [{"input": "example", "expected_output": "result"}]
+fixed_code = ut_baseline(buggy_code, entry_point, test_cases)
 ```
 
-### Running with the Baseline Runner
+### Integration with Existing Code
 
-Use `baseline_runner.py` for a unified interface to run any baseline:
+To integrate with existing debugging workflows, you can modify the original `baselines.py` file to import from the separated modules:
 
 ```python
-from baseline_runner import debug_with_baseline
+# In your main debugging script
+from no_debugging import repeat_generation
+from simple_feedback import simple_baseline
+from self_edit import ut_baseline
+from self_debugging_explanation import ut_expl_baseline
+from self_debugging_trace import ut_trace_baseline
 
-# Run a specific baseline
-fixed_problems, total_unsolved = debug_with_baseline(
-    input_seeds="path/to/seeds.jsonl",
-    baseline_type="simple",  # Options: "repeat", "simple", "ut", "ut_expl", "ut_trace"
-    max_examples=100,
-    output_folder="./results"
-)
-```
-
-### Command Line Usage
-
-```bash
-# Edit the configuration in baseline_runner.py
-python baseline_runner.py
+# Then use in your debug_with_baseline function
+if baseline_type == 'simple':
+    fixed_code = simple_baseline(buggy_code, entry_point)
+elif baseline_type == 'ut':
+    fixed_code = ut_baseline(buggy_code, entry_point, gold_tests)
+# ... etc
 ```
 
 ## Configuration
@@ -105,7 +106,6 @@ baseline/
 ├── self_edit.py                       # Self-Edit baseline
 ├── self_debugging_explanation.py      # Self-Debugging (Explanation) baseline
 ├── self_debugging_trace.py           # Self-Debugging (Trace) baseline
-├── baseline_runner.py                 # Unified runner (to be created)
 ├── baselines.py                       # Original monolithic file (deprecated)
 ├── ldb/                              # LDB baseline implementation
 └── reflexion/                        # Reflexion baseline implementation
