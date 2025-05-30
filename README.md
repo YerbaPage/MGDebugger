@@ -70,6 +70,8 @@ This will initialize the model and start the server on port `18889`.
 
 ## Usage
 
+All the codes for our main experiments are in the `src` folder.
+
 ### Running the Demo
 
 We've prepared a demo code snippet to showcase MGDebugger's debugging capabilities. You can run the demo by executing the following command after starting the vLLM server:
