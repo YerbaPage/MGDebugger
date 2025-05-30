@@ -11,31 +11,12 @@ import time
 import sys
 from typing import List, Dict, Any
 
-# MODEL = "codellama/CodeLlama-13b-Instruct-hf"
-# MODEL = "codellama/CodeLlama-34b-Instruct-hf"
-# MODEL = "deepseek-ai/deepseek-coder-6.7b-instruct"
-# MODEL = "deepseek-ai/deepseek-coder-33b-instruct"
 MODEL = "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct"
-# MODEL = "TechxGenus/Codestral-22B-v0.1-GPTQ"
-# MODEL = "mistralai/Codestral-22B-v0.1"
-# MODEL = "Qwen/CodeQwen1.5-7B-Chat"
-# MODEL = "bigcode/starcoder2-15b-instruct-v0.1"
-
-# CUDA_VISIBLE_DEVICES=0 python -m vllm.entrypoints.openai.api_server --model Qwen/CodeQwen1.5-7B-Chat --dtype auto --api-key token-abc123s --port 18892 --trust-remote-code --max-model-len 16384 --gpu-memory-utilization 0.5
-
-# CUDA_VISIBLE_DEVICES=0 python -m vllm.entrypoints.openai.api_server --model bigcode/starcoder2-15b-instruct-v0.1 --dtype auto --api-key token-abc123s --port 18891 --trust-remote-code --max-model-len 16384 --gpu-memory-utilization 0.6
-
-
 # OpenAI client setup
 client = OpenAI(
     base_url="http://localhost:18889/v1",
     api_key="token-abc123s",
 )
-
-# dscoder 18889
-# codestral 18890
-# starcoder 18891
-# codeqwen 18892
 
 # Parameters
 MAX_OUTER_RETRY = 10
@@ -119,4 +100,4 @@ def extract_fixed_code(response: str) -> str:
     if code_blocks:
         # take the last code block as the fixed function
         return code_blocks[-1]
-    raise ValueError("No valid fixed function found in the response") 
+    raise ValueError("No valid fixed function found in the response")
