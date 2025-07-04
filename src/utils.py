@@ -37,13 +37,28 @@ helpers = [
 
 STARTING_CODE = "\n".join(helpers)
 
-
 def create_dependency_graph(functions):
     graph = {func_name: set() for func_name in functions}
+    
     for func_name, func_code in functions.items():
-        for other_func in functions:
-            if other_func in func_code and other_func != func_name:
-                graph[func_name].add(other_func)
+        try:
+            # Parse the function code using AST
+            tree = ast.parse(func_code)
+            
+            # Find all function calls in this function
+            for node in ast.walk(tree):
+                if isinstance(node, ast.Call) and isinstance(node.func, ast.Name):
+                    called_func = node.func.id
+                    # Only add dependency if the called function is in our functions dict
+                    if called_func in functions and called_func != func_name:
+                        graph[func_name].add(called_func)
+        except SyntaxError as e:
+            logger.error(f"Failed to parse function {func_name} with AST: {e}")
+            # Fallback to string-based method for this function
+            for other_func in functions:
+                if other_func in func_code and other_func != func_name:
+                    graph[func_name].add(other_func)
+    
     return graph
 
 
