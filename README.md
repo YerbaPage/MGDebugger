@@ -1,7 +1,7 @@
 <div align="center">
 
 <div align="center">
-    <img src="figures/logo.png" alt="MGDebugger Logo" width="800"/>
+    <img src="figures/logo.png" alt="MGDebugger Logo" width="500"/>
 </div>
 
 # MGDebugger: Multi-Granularity LLM Debugger
