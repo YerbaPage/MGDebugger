@@ -1,5 +1,9 @@
 <div align="center">
 
+<div align="center">
+    <img src="figures/logo.png" alt="MGDebugger Logo" width="800"/>
+</div>
+
 # MGDebugger: Multi-Granularity LLM Debugger
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
