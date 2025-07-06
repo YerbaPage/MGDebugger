@@ -11,7 +11,9 @@
 
 </div>
 
-**Update: MGDebugger achieves 100% accuracy on HumanEval with the DeepSeek-R1 model in our latest experiments! Results have been uploaded in `/supplementary/dsr1_results.jsonl`**
+For paper "From Code to Correctness: Closing the Last Mile of Code Generation with Hierarchical Debugging".
+
+**🔥Update: MGDebugger achieves 100% accuracy on HumanEval with the DeepSeek-R1 model in our latest experiments!** Results have been uploaded in `/supplementary/dsr1_results.jsonl`
 
 ## Table of Contents
 
